@@ -11,14 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123041601) do
+ActiveRecord::Schema.define(:version => 20120203044850) do
 
   create_table "bookmarks", :force => true do |t|
-    t.string   "url"
-    t.text     "notes"
-    t.integer  "category_id"
     t.integer  "user_id"
-    t.boolean  "public"
+    t.string   "url"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookmarks_categories", :force => true do |t|
+    t.integer  "bookmark_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120123041601) do
   end
 
   create_table "categories", :force => true do |t|
-    t.integer  "user_id"
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,9 +50,8 @@ ActiveRecord::Schema.define(:version => 20120123041601) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
     t.string   "password"
-    t.integer  "level"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
