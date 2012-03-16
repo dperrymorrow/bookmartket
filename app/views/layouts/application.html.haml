@@ -1,7 +1,17 @@
+!!! HTML
+%html
+  %head
+    %title Booksmartlet
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    = yield :head
 
-- if flash[:error]
-  %p.error= flash[:error]
-- if flash[:notice]
-  %p.notice= flash[:notice]
+  %body
 
-= yield
+    - if flash[:error]
+      %p.error= flash[:error]
+    - if flash[:notice]
+      %p.notice= flash[:notice]
+
+    = yield
