@@ -2,4 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  login_fail: "Nope, that was not it..."
+  login_success: "Welcome back. Need your bookmarklet"
+  cant_find_user: "Hmmm... I could't find that user."
+  user_created: "Cool! Now all you have to do is drag the booksmartlet to your address bar."
+

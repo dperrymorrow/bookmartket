@@ -1,0 +1,15 @@
+%h1 Get a Booksmartlet
+
+- if @user.errors.any?
+  - @user.errors.messages.each do |message|
+    .message
+      = message.first
+      = message.last.last
+
+= form_for @user do |user|
+  = user.label :email
+  = user.text_field :email
+  = user.label :password
+  = user.text_field :password
+  = user.submit
+

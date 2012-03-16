@@ -7,6 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'pg'
 gem 'json'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -15,6 +16,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'less'
+  gem 'haml_coffee_assets'
+  gem 'execjs'
 end
 
 gem 'jquery-rails'
@@ -22,7 +25,7 @@ gem 'backbone_rails'
 
 group :test do
   gem "autotest-rails", "4.1.0"
-  # gem "autotest-growl"
+  gem "autotest-growl"
   gem "rspec-rails"
   gem "launchy"
   gem "rspec-core", "~> 2.7.1"

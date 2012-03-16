@@ -1,11 +1,9 @@
 Booksmartlet::Application.routes.draw do
-  resources :categories
 
-  resources :tags
-
-  resources :bookmarks
-
-  resources :users
+  resources :tags, :only => [:create,:destroy]
+  resources :bookmarks, :only => [:index,:create,:destroy,:update]
+  resources :users, :only => [:create,:show,:update,:new]
+  resources :login, :only => [:create,:new]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +54,7 @@ Booksmartlet::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'users#index'
+  root :to => 'login#new'
 
   # See how all your routes lay out with "rake routes"
 

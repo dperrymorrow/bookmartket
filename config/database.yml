@@ -16,11 +16,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: booksmartlet_development
-  pool: 5
-  host: 127.0.0.1
-  # port: 5432
-  username: davidmorrow
-  password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,11 +40,7 @@ test: &test
   adapter: postgresql
   encoding: unicode
   database: booksmartlet_test
-  pool: 5
-  host: 127.0.0.1
-  port: 5432
-  username: davidmorrow
-  password:
+  host: localhost
 
 production:
   adapter: postgresql
