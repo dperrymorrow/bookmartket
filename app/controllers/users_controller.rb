@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  layout 'site'
+
   def show
     @user = User.find_by_api_key(params[:id])
     if !@user

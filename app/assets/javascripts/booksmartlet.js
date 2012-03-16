@@ -1,31 +1,105 @@
-var bsDiv = document.createElement('div');
-var docHeight = Math.max(
-    Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
-    Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
-    Math.max(document.body.clientHeight, document.documentElement.clientHeight)
-);
 
-bsDiv.setAttribute('id', 'bs-iframe-container');
+if(window.dpm == undefined){window.dpm = {};}
+window.dpm.Booksmartlet = function(){
 
-var borderWidth                = 10;
-var margin                     = 5;
+  this.bsDiv        = null;
+  this.closeBtn    = null;
+  this.margin      = 5;
+  this.padding     = 4;
+  this.width       = 355;
+  this.borderWidth = 11;
+  this.url         = '';
 
-bsDiv.style.width              = '300px';
-bsDiv.style.height             = Math.floor(docHeight - margin*2 - borderWidth*2).toString() + 'px';
-bsDiv.style.position           = "fixed";
-bsDiv.style.top                = margin.toString() + 'px';
-bsDiv.style.right              = margin.toString() + 'px';
-bsDiv.style.background         = "#efefef";
-bsDiv.style.border             = borderWidth.toString() + "px solid #000";
+  this.init = function(url){
+    this.url   = url;
+    this.bsDiv = document.createElement('div');
 
-bsDiv.style.borderRadius       = '10px';
-bsDiv.style.MozBorderRadius    = '10px';
-bsDiv.style.WebkitBorderRadius = '10px';
+    this.bsDiv.setAttribute('id', 'bs-iframe-container');
 
-bsDiv.style.boxShadow          = '0px 0px 10px 0px #222222';
-bsDiv.style.MozBoxShadow       = '0px 0px 10px 0px #222222';
-bsDiv.style.WebkitBoxShadow    = '0px 0px 10px 0px #222222';
+    this.bsDiv.style.width              = this.width.toString() + 'px';
+    this.bsDiv.style.height             = this.calcHeight();
+    this.bsDiv.style.position           = "fixed";
+    this.bsDiv.style.padding            = this.padding.toString() + 'px';
+    this.bsDiv.style.top                = this.margin.toString() + 'px';
+    this.bsDiv.style.right              = this.margin.toString() + 'px';
+    this.bsDiv.style.backgroundColor        = "#efefef";
+    this.bsDiv.style.border             = this.borderWidth.toString() + "px solid #222222";
 
-bsDiv.innerHTML                = "nothing";
+    this.bsDiv.style.borderRadius       = '10px';
+    this.bsDiv.style.MozBorderRadius    = '10px';
+    this.bsDiv.style.WebkitBorderRadius = '10px';
 
-document.body.appendChild(bsDiv);
+    this.bsDiv.style.boxShadow          = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
+    this.bsDiv.style.MozBoxShadow       = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
+    this.bsDiv.style.WebkitBoxShadow    = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
+
+    this.bsDiv.innerHTML                = this.getIframe();
+
+    document.body.appendChild(this.bsDiv);
+    this.buildCloseBtn();
+
+    loc = this;
+    window.onresize = function(){
+      loc.bsDiv.style.height = loc.calcHeight();
+    }
+
+    return this;
+  }
+
+  this.buildCloseBtn = function(){
+    this.closeBtn                          = document.createElement('div');
+    this.closeBtn.style.width              = '20px';
+    this.closeBtn.style.height             = '20px';
+    this.closeBtn.style.textAlign          = 'center';
+    this.closeBtn.style.position           = "absolute";
+    this.closeBtn.style.padding            = '0px';
+    this.closeBtn.style.top                = '-15px';
+    this.closeBtn.style.left               = '-18px';
+    this.closeBtn.style.backgroundColor    = "#000000";
+    this.closeBtn.style.border             = "3px solid #FFFFFF";
+
+    this.closeBtn.style.borderRadius       = '15px';
+    this.closeBtn.style.MozBorderRadius    = '15px';
+    this.closeBtn.style.WebkitBorderRadius = '15px';
+
+    this.closeBtn.style.boxShadow          = '0px 0px 10px 0px #222222';
+    this.closeBtn.style.MozBoxShadow       = '0px 0px 10px 0px #222222';
+    this.closeBtn.style.WebkitBoxShadow    = '0px 0px 10px 0px #222222';
+    this.closeBtn.innerHTML                = '<a href="javascript:bsInst.destroy();" style="cursor:pointer;font-family:Arial,sans-serif;padding:0;margin:0;font-weight:bold;text-align:center;display:block;color:#ffffff;line-height:22px;font-size:17px;text-decoration:none;">&times;</a>';
+
+    this.bsDiv.appendChild(this.closeBtn);
+  }
+
+  this.getIframe = function(){
+    var appendedUrl = this.url;
+    appendedUrl+= "&url=" + encodeURI(window.location.href);
+
+    var m = document.getElementsByTagName('meta');
+    for(var i in m){
+      if( m[i].name.toLowerCase() == 'keywords'){
+        appendedUrl+= "&tags=" + encodeURI( m[i].content );
+        break;
+      }
+    }
+
+    return '<iframe id="bs-iframe" frameborder="no" width="100%" height="100%" src="' + appendedUrl + '"></iframe>'
+  }
+
+  this.getDocHeight = function(){
+    return Math.max(
+      Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+      Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
+      Math.max(document.body.clientHeight, document.documentElement.clientHeight)
+    );
+  }
+
+  this.calcHeight = function(){
+    return Math.floor(this.getDocHeight() - this.margin*2 - this.padding*2 - this.borderWidth*2).toString() + 'px';
+  }
+
+  this.destroy = function(){
+    document.body.removeChild(this.bsDiv);
+  }
+}
+
+var bsInst = new window.dpm.Booksmartlet().init('http://localhost:3002/iframe/bookmarks?hash=PIUEWREWR');

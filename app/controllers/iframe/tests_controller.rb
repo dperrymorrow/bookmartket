@@ -1,5 +1,6 @@
 class Iframe::TestsController < ApplicationController
 
+  layout 'site'
 
   def index
 

@@ -1,5 +1,7 @@
 class LoginController < ApplicationController
 
+  layout 'site'
+
   def new
   end
 

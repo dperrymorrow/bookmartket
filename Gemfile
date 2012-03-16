@@ -15,13 +15,14 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'less'
   gem 'haml_coffee_assets'
   gem 'execjs'
+  gem 'less-rails'
 end
 
 gem 'jquery-rails'
-gem 'backbone_rails'
+gem "rails-backbone"
+# gem 'less-rails-bootstrap', "~> 2.0.5"
 
 group :test do
   gem "autotest-rails", "4.1.0"

@@ -1,0 +1,13 @@
+!!! HTML
+%html
+  %head
+    %title Booksmartlet
+    %meta{:name => 'keywords', :content => "bookmarks, cloud solution" }
+    = stylesheet_link_tag 'bootstrap/bootstrap.less'
+    = stylesheet_link_tag :iframe
+    = javascript_include_tag :iframe
+    = csrf_meta_tags
+    = yield :head
+
+  %body
+    = yield
