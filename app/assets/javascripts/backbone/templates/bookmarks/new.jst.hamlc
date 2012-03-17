@@ -1,0 +1,16 @@
+.well.row
+
+  %form.form-horizontal
+    %fieldset
+      %legend
+        %i.icon-bookmark
+        New Bookmark
+
+      .control-group
+        %label.control-label Url:
+        .controls
+          %input.input-large{:type => "text", :name => 'url', :value => bsApp.url }
+      .control-group
+        %label.control-label Title:
+        .controls
+          %input.input-large{:type => "text", :name => 'url', :value => bsApp.url }

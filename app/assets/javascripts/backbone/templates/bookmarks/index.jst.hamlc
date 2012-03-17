@@ -1,0 +1,8 @@
+- if @bookmarks.length == 0
+  .alert.alert-info
+    %p
+      %strong You don't have any stuff yet!
+      %br
+      Really? The whole big bad internet out there and you don't have any booksmartlets? Common. I know you got some sites you wanna mark.
+
+.bookmarks-container

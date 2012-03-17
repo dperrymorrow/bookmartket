@@ -5,7 +5,7 @@ window.dpm.Booksmartlet = function(){
   this.bsDiv        = null;
   this.closeBtn    = null;
   this.margin      = 5;
-  this.padding     = 4;
+  this.padding     = 0;
   this.width       = 355;
   this.borderWidth = 11;
   this.url         = '';
@@ -29,9 +29,9 @@ window.dpm.Booksmartlet = function(){
     this.bsDiv.style.MozBorderRadius    = '10px';
     this.bsDiv.style.WebkitBorderRadius = '10px';
 
-    this.bsDiv.style.boxShadow          = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
-    this.bsDiv.style.MozBoxShadow       = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
-    this.bsDiv.style.WebkitBoxShadow    = '0px 0px 10px 0px #222222, inset 0px 0px 4px 0px #444444';
+    this.bsDiv.style.boxShadow          = '0px 0px 5px 0px #222222, inset 0px 0px 4px 0px #888888';
+    this.bsDiv.style.MozBoxShadow       = '0px 0px 5px 0px #222222, inset 0px 0px 4px 0px #888888';
+    this.bsDiv.style.WebkitBoxShadow    = '0px 0px 5px 0px #222222, inset 0px 0px 4px 0px #888888';
 
     this.bsDiv.innerHTML                = this.getIframe();
 
@@ -102,4 +102,4 @@ window.dpm.Booksmartlet = function(){
   }
 }
 
-var bsInst = new window.dpm.Booksmartlet().init('http://localhost:3002/iframe/bookmarks?hash=PIUEWREWR');
+var bsInst = new window.dpm.Booksmartlet().init('http://localhost:3000/iframe/bookmarks?hash=FQKTLEDD');

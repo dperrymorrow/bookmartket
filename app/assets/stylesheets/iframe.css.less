@@ -1,1 +1,85 @@
 
+@import 'mixins.css.less';
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+
+.container-fluid{
+  padding:0;
+}
+
+#content{
+  margin-top:50px;
+}
+
+.btn{
+/*  .border-radius(12px);*/
+/*  .box-shadow( inset 0px 0px 3px #fff );*/
+}
+
+input[type="text"],textarea{
+/*  .box-shadow( inset 1px 1px 3px #dfdfdf );*/
+  border:1px solid #ccc;
+}
+
+#top-bar{
+  background-color:#444;
+  position:fixed;
+  top:0;
+  left:0;
+  padding: 10px;
+  padding-bottom:12px;
+  #gradient.vertical(#444,#111);
+  .box-shadow(0px 0px 8px #222);
+  
+  .btns{
+    display:inline-block;
+    float:left;
+    width:140px;
+    
+    #add-bookmark{
+      margin-left:10px;
+    }
+  }
+  
+  .search-form{
+    display:inline-block;
+    float:right;
+    width:210px;
+    
+    input[type="text"]{
+      background-color:#333;
+      .box-shadow( inset 1px 1px 4px #000 );
+      border:1px solid #000;
+      color:#dfdfdf;
+      
+      &:focus{
+        background-color:#efefef;
+        .box-shadow( inset 1px 1px 3px #ccc );
+        color:#444;
+      }
+    }
+  }
+}
+
+legend{
+  font-weight:bold;
+}
+
+.form-horizontal .control-group{ 
+  margin:0;
+  padding: 5px 0px 5px 0px;
+  
+  label{
+    width:70px;
+    float:left;
+    line-height:28px;
+  }
+}
+
+.form-horizontal .control-group:nth-child(odd){ 
+  background-color:#dfdfdf;
+}

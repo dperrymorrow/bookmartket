@@ -3,11 +3,33 @@
   %head
     %title Booksmartlet
     %meta{:name => 'keywords', :content => "bookmarks, cloud solution" }
-    = stylesheet_link_tag 'bootstrap/bootstrap.less'
-    = stylesheet_link_tag :iframe
+    = stylesheet_link_tag :iframe_app
     = javascript_include_tag :iframe
     = csrf_meta_tags
     = yield :head
 
   %body
-    = yield
+
+    .container-fluid
+      #top-bar.row-fluid
+        .btns
+
+          .btn-group.pull-left
+            %a.btn.btn-warning.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %i.icon-cog.icon-white
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href=>'#/bookmarks/new'} New Note
+              %li
+                %a{:href=>''} Booksmartlet.com
+
+          %a.btn.btn-danger.pull-left#add-bookmark{:href => "#/bookmarks/new"}
+            %i.icon-bookmark.icon-white
+            Add
+
+        .search-form
+          %input.input-medium.search-query{:type => "text", :placeholder => 'Search'}
+
+      #content.row-fluid
+        = yield

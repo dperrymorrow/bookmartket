@@ -6,5 +6,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require backbone/booksmartlet.js.coffee
+//= require hamlcoffee
+//= require bootstrap.min
+//= require underscore
+//= require backbone
+//= require backbone_datalink
+//= require backbone_rails_sync
+
+//= require_tree ./backbone
+//= require bs_app
 
