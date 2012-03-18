@@ -6,11 +6,11 @@ class Booksmartlet.Routers.BookmarksRouter extends Backbone.Router
   routes:
     "/bookmarks/new":   "newBookmark"
     "/bookmarks/index": "index"
+    "/bookmarks":           "index"
     "/bookmarks/:id/edit" : "edit"
     ".*":               "index"
 
   newBookmark: ->
-    console.log 'new'
     @view = new Booksmartlet.Views.Bookmarks.NewView(collection: @bookmarks)
     $("#content").html(@view.render().el)
 

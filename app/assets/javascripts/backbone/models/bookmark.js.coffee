@@ -6,6 +6,11 @@ class Booksmartlet.Models.Bookmark extends Backbone.Model
     notes: null
     url:   null
 
+  url:->
+    return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"
+
 class Booksmartlet.Collections.BookmarksCollection extends Backbone.Collection
   model: Booksmartlet.Models.Bookmark
-  url: '/iframe/bookmarks'
+
+  url:->
+    return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"

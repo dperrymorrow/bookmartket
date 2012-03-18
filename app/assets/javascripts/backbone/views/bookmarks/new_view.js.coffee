@@ -4,34 +4,27 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
   template: JST["backbone/templates/bookmarks/new"]
 
   events:
-    "submit #new-bookmark": "save"
+    "click #new-bookmark": "save"
 
-  constructor: (options) ->
-    super(options)
-    @model = new @collection.model()
-
-    @model.bind("change:errors", () =>
-      this.render()
-    )
+  initialize:(options)->
+    @model = new options.collection.model
 
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
 
-    @model.unset("errors")
+    params =
+      url:   @.$('input[name="url"]').val()
+      notes: @.$('textarea[name="notes"]').val()
+      title: @.$('input[name="title"]').val()
 
-    @collection.create(@model.toJSON(),
+    @collection.create( params,
       success: (bookmark) =>
-        @model = bookmark
-        window.location.hash = "/#{@model.id}"
-
+        window.location.hash = "/bookmarks"
       error: (bookmark, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
   render: ->
-    $(@el).html(@template(@model.toJSON() ))
-
-    this.$("form").backboneLink(@model)
-
+    $(@el).html @template(@model.toJSON() )
     return this

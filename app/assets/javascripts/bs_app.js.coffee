@@ -2,10 +2,6 @@
 window.dpm ?= {}
 class dpm.BsApp
 
-  constructor:(@hash,@url,@tags)->
-    console.log 'fire it up....'
+  @startUp:(@api_key,@url,@tags)->
     @bookmarks_router = new Booksmartlet.Routers.BookmarksRouter()
     Backbone.history.start()
-
-  @getInstance:()->
-    return this

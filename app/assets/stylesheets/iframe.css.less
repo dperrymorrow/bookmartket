@@ -1,11 +1,11 @@
-
 @import 'mixins.css.less';
 
 html,body{
   margin:0;
   padding:0;
+  width:360px;
+  overflow:hidden;
 }
-
 
 .container-fluid{
   padding:0;
@@ -66,20 +66,46 @@ input[type="text"],textarea{
 }
 
 legend{
+  padding-left:10px;
   font-weight:bold;
+  text-shadow:1px 1px 1px #fff;
 }
 
-.form-horizontal .control-group{ 
-  margin:0;
-  padding: 5px 0px 5px 0px;
+.form-horizontal{
+
+  .control-group{ 
+    margin:0;
+    padding: 5px 0px 2px 10px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+    display:block;
   
-  label{
-    width:70px;
-    float:left;
-    line-height:28px;
+    label{
+      width:70px;
+      float:left;
+      line-height:25px;
+      text-align:right;
+      padding-right:5px;
+    }
   }
+  
+  .action-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:60px;
+    width:100%;
+    border-top:1px solid #fff;
+    #gradient.vertical(#fff,#999);
+    .box-shadow(0px 0px 8px #666);
+    padding-left:80px;
+    
+    .btn-large{
+      margin-top:10px;
+    }
+  }  
 }
 
-.form-horizontal .control-group:nth-child(odd){ 
+.form-horizontal .control-group:nth-child(even){ 
   background-color:#dfdfdf;
 }

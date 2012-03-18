@@ -7,6 +7,7 @@ class Booksmartlet.Views.Bookmarks.IndexView extends Backbone.View
     @options.bookmarks.bind('reset', @addAll)
 
   addAll: () =>
+    @.$(".bookmarks-container").children().remove()
     @options.bookmarks.each(@addOne)
 
   addOne: (bookmark) =>
@@ -18,5 +19,8 @@ class Booksmartlet.Views.Bookmarks.IndexView extends Backbone.View
   render: =>
     $(@el).html(@template(bookmarks: @options.bookmarks.toJSON() ))
     @addAll()
+
+    if @.$('.bookmarks-container').children().length == 0
+      @options.bookmarks.fetch()
 
     return this

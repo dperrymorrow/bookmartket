@@ -1,16 +1,32 @@
-.well.row
+.row
 
-  %form.form-horizontal
+  %form.form-horizontal#new-bookmark
     %fieldset
       %legend
-        %i.icon-bookmark
         New Bookmark
 
       .control-group
         %label.control-label Url:
         .controls
-          %input.input-large{:type => "text", :name => 'url', :value => bsApp.url }
+          %input.input-large{:type => "text", :name => 'url', :value => dpm.BsApp.url }
       .control-group
         %label.control-label Title:
         .controls
-          %input.input-large{:type => "text", :name => 'url', :value => bsApp.url }
+          %input.input-large{:type => "text", :name => 'title', :value => dpm.BsApp.url }
+      .control-group
+        %label.control-label Description:
+        .controls
+          %textarea{:name => 'notes', :placeholder => 'Enter Brief Description'}
+      .control-group
+        %label.control-label Tags:
+        .controls
+          %input.input-large{:type => "text", :name => 'tags', :value => dpm.BsApp.tags }
+
+
+      .action-bar
+        .btn.btn-success.btn-large#new-bookmark{:href=>'#'}
+          %i.icon-check.icon-white
+          Save
+        .btn.btn-large#save{:href=>'#'}
+          %i.icon-cancel.icon-white
+          Cancel

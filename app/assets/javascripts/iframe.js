@@ -13,6 +13,7 @@
 //= require backbone_datalink
 //= require backbone_rails_sync
 
-//= require_tree ./backbone
 //= require bs_app
+//= require_tree ./backbone
+
 

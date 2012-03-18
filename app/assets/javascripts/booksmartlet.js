@@ -102,4 +102,4 @@ window.dpm.Booksmartlet = function(){
   }
 }
 
-var bsInst = new window.dpm.Booksmartlet().init('http://localhost:3000/iframe/bookmarks?hash=FQKTLEDD');
+var bsInst = new window.dpm.Booksmartlet().init('http://localhost:3000/iframe/app?api_key=FQKTLEDD');
