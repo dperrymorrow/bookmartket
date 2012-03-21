@@ -1,2 +1,2 @@
 %script{:type=>'text/javascript'}
-  = "window.dpm.BsApp.startUp('#{params[:api_key]}','#{params[:url]}','#{params[:tags]}');"
+  = "window.dpm.BsApp.startUp('#{params[:api_key]}','#{clean_quotes(params[:url])}','#{clean_quotes(params[:title])}','#{clean_quotes(params[:description])}','#{clean_quotes(params[:tags])}');"

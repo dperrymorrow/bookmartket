@@ -23,12 +23,14 @@ window.bsCloseOverlay = function(){
 
 getIframe = function(){
   url += "?api_key=" + api_key + "&url=" + encodeURI(window.location.href);
+  url += "&title=" + encodeURI(document.title);
 
   var m = document.getElementsByTagName('meta');
   for(var i in m){
     if( typeof(m[i].name) !== 'undefined' && m[i].name.toLowerCase() == 'keywords'){
       url += "&tags=" + encodeURI( m[i].content );
-      break;
+    }else if(typeof(m[i].name) !== 'undefined' && m[i].name.toLowerCase() == 'description' ){
+      url += "&description=" + encodeURI( m[i].content );
     }
   }
   return '<iframe id="bs-iframe" frameborder="no" width="100%" height="100%" src="' + url + '"></iframe>'
@@ -41,7 +43,7 @@ var resets   = "background:none; border:none; bottom:auto; clear:none; cursor:de
 
 var shadowStyle = "box-shadow: rgb(34, 34, 34) 0px 0px 5px 0px; -webkit-box-shadow: rgb(34, 34, 34) 0px 0px 5px 0px";
 
-var containerStyles = resets + "z-index:10000; width:355px; height:1073px; position:fixed; top:" + defaults.margin + "px; right:" + defaults.margin + "px; background-color:rgb(239, 239, 239); border:"+ defaults.borderWidth +"px solid #000000; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px;" + shadowStyle;
+var containerStyles = resets + "z-index:2147483647; width:355px; height:1073px; position:fixed; top:" + defaults.margin + "px; right:" + defaults.margin + "px; background-color:rgb(239, 239, 239); border:"+ defaults.borderWidth +"px solid #000000; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px;" + shadowStyle;
 
 var closeStyles = resets + "width:20px; height:20px; text-align:center; position:absolute; top:-15px; left:-18px; background-color:#000000; border:3px solid #ffffff; -webkit-border-radius: 15px; -moz-border-radius: 15px; border-radius: 15px;" + shadowStyle;
 

@@ -2,3 +2,5 @@
 .row
   = @title
   = @url
+  = @domain
+%hr

@@ -20,4 +20,10 @@ module ApplicationHelper
     js = URI.escape(js)
     "javascript:(function(){#{js}}());"
   end
+
+  def clean_quotes(string)
+    string = string.to_s.gsub(/[,"]/,'')
+    string = string.gsub(/[,']/,'')
+    string
+  end
 end

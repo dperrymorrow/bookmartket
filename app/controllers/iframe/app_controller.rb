@@ -1,3 +1,5 @@
+require 'cgi'
+
 class Iframe::AppController < ApplicationController
 
   layout 'iframe'

@@ -1,6 +1,6 @@
 .row
 
-  %form.form-horizontal#new-bookmark
+  %form.form-horizontal
     %fieldset
       %legend
         New Bookmark
@@ -12,15 +12,15 @@
       .control-group
         %label.control-label Title:
         .controls
-          %input.input-large{:type => "text", :name => 'title', :value => dpm.BsApp.url }
+          %input.input-large{:type => "text", :name => 'title', :value => dpm.BsApp.title, :placeholder => 'Title' }
       .control-group
         %label.control-label Description:
         .controls
-          %textarea{:name => 'notes', :placeholder => 'Enter Brief Description'}
+          %textarea{:name => 'notes', :placeholder => 'Enter Brief Description', :value => dpm.BsApp.description}
       .control-group
         %label.control-label Tags:
         .controls
-          %input.input-large{:type => "text", :name => 'tags', :value => dpm.BsApp.tags }
+          %textarea.input-large{:type => "text", :name => 'tags', :value => dpm.BsApp.tags, :placeholder => 'comma dilem' }
 
 
       .action-bar
@@ -28,5 +28,5 @@
           %i.icon-check.icon-white
           Save
         .btn.btn-large#save{:href=>'#'}
-          %i.icon-cancel.icon-white
+          %i.icon-ban-circle
           Cancel
