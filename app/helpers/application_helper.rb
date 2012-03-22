@@ -6,7 +6,6 @@ module ApplicationHelper
     js = File.open( "#{Rails.root}/app/assets/javascripts/#{file}", 'r' ).read
 
     js.gsub!( /\/\*.+?\*\/|\/\/.*(?=[\n\r])/, '' )  # Kill comments.
-    # js.gsub!(/\s+/, " ").strip
     js.gsub!( /s{\t}{ }gm/, '')         # Tabs to spaces
     js.gsub!( /s{ +}{ }gm/, '')         # Space runs to one space
     js.gsub!( /s{^\s+}{}gm/, '')        # Kill line-leading whitespace

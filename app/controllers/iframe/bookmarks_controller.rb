@@ -4,7 +4,7 @@ class Iframe::BookmarksController < ApplicationController
 
   def index
     if params[:search_term]
-      @user.bookmarks.search
+      @user.bookmarks.search( params[:search_term] )
     else
       @user.bookmarks
     end
