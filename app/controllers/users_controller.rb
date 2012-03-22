@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   layout 'site'
   before_filter :find_user
-  skip_before_filter [:new, :create]
+  skip_before_filter :find_user, [:new, :create]
 
   def show
     @user = User.find_by_api_key(params[:id])

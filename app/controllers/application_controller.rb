@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   def find_user
     @user = User.find_by_api_key(params[:api_key])
-    redirect_to root_url and return if !@user
+    if !@user
+      redirect_to root_url and return
+    end
   end
 end
