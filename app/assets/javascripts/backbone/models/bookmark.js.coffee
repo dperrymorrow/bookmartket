@@ -11,7 +11,8 @@ class Booksmartlet.Models.Bookmark extends Backbone.Model
     return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"
 
 class Booksmartlet.Collections.BookmarksCollection extends Backbone.Collection
-  model: Booksmartlet.Models.Bookmark
+  model:       Booksmartlet.Models.Bookmark
+  search_term: null
 
   url:->
-    return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"
+    return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}&search_term=#{encodeURI(@search_term)}"
