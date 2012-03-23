@@ -9,9 +9,7 @@ class Bookmark < ActiveRecord::Base
     end
   end
 
-
-  def search(key)
-
+  def self.search(api_key,search_term)
+    User.find_by_api_key(api_key).bookmarks.where("title like ?", "%#{search_term}%")
   end
-
 end
