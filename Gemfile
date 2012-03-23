@@ -32,6 +32,7 @@ group :test do
   gem "rspec-core", "~> 2.7.1"
   gem "spork", '~> 0.9.0.rc9'
   gem "fakeweb"
+  gem "faker"
   gem "cucumber-rails", ">= 0.3.2"
   gem "cucumber-rails-training-wheels"
   gem "database_cleaner"

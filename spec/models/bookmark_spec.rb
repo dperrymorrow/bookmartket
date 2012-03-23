@@ -6,12 +6,12 @@ describe Bookmark do
     @bookmark = Factory.create(:bookmark)
   end
 
-  if "grabs the domain from teh url" do
-    @bookmark.domain.should not_be(nil)
+  it "grabs the domain from the url" do
+    @bookmark.domain.should_not == nil
   end
-
-  it "searched correctly" do
-
-  end
+  #
+  # it "searched correctly" do
+  #
+  # end
 
 end
