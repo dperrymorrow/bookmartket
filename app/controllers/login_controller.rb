@@ -6,14 +6,11 @@ class LoginController < ApplicationController
   end
 
   def create
-    @user = User.where(
-      :email    => params[:email],
-      :password => params[:password]
-    ).first
+    user = User.login_attempt( params[:email], params[:password] )
 
-    if @user
+    if user
       flash[:notice] = t(:login_success)
-      redirect_to user_url(@user.api_key)
+      redirect_to user_url(user.api_key)
     else
       flash[:error]= t(:login_fail)
       redirect_to new_login_url

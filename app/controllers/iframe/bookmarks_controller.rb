@@ -4,9 +4,9 @@ class Iframe::BookmarksController < ApplicationController
 
   def index
     if params[:search_term]
-      Bookmark.search( params[:api_key], params[:search_term] )
+      @bookmarks = Bookmark.search( params[:api_key], params[:search_term] )
     else
-      @user.bookmarks
+      @bookmarks = @user.bookmarks
     end
     render :json => @bookmarks
   end

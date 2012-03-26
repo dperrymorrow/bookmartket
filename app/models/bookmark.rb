@@ -2,6 +2,7 @@ class Bookmark < ActiveRecord::Base
 
   before_create :set_domain
   validates_presence_of :url
+  validates_format_of :url, :with => URI::regexp(%w(http https))
 
   def set_domain
     if self.url.present?
@@ -13,3 +14,4 @@ class Bookmark < ActiveRecord::Base
     User.find_by_api_key(api_key).bookmarks.where("title like ?", "%#{search_term}%")
   end
 end
+

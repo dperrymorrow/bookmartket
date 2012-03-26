@@ -50,5 +50,5 @@ production:
   username: booksmartlet
   password:
 
-cucumber:
-  <<: *test
+# cucumber:
+#   <<: *test

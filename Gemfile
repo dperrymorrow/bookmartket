@@ -26,7 +26,7 @@ gem "rails-backbone"
 
 group :test do
   gem "autotest-rails", "4.1.0"
-  gem "autotest-growl"
+  # gem "autotest-growl"
   gem "rspec-rails"
   gem "launchy"
   gem "rspec-core", "~> 2.7.1"
