@@ -3,6 +3,7 @@ class Bookmark < ActiveRecord::Base
   before_create :set_domain
   validates_presence_of :url
   validates_format_of :url, :with => URI::regexp(%w(http https))
+  validates_uniqueness_of :url, :scope => :user_id
 
   def set_domain
     if self.url.present?

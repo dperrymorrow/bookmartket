@@ -18,7 +18,7 @@ describe Iframe::BookmarksController do
 
   it "searches for bookmarks" do
     3.times do
-      Factory.create( :bookmark, :title => 'foobar', :user_id => @user.id )
+      Factory.create( :bookmark, :url => 'https://'+Faker::Internet.domain_name, :title => 'foobar', :user_id => @user.id )
     end
 
     get :index, :api_key => @user.api_key, :search_term => 'foobar'
