@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   SALT = 'd53p918702l'
   has_many :bookmarks
+  has_many :tags
   before_save :generate_hash, :encrypt_password
 
   validates :email, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}

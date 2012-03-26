@@ -28,4 +28,10 @@ describe Bookmark do
     Factory.build( :bookmark, :user_id => user.id ).should be_valid
   end
 
+  it "has many tags" do
+    tag = Factory.create(:tag, :user_id => @user.id)
+    Factory.create(:bookmarks_tag, :bookmark_id => @bookmark.id, :tag_id => tag.id)
+    @bookmark.tags.length.should == 1
+  end
+
 end
