@@ -20,4 +20,10 @@ describe User do
     User.login_attempt(user.email, 'pa55word').should == user
   end
 
+  it "has many tags" do
+    user = Factory.create(:user)
+    tag = Factory.create(:tag, :user_id => user.id)
+    user.should have(1).tags
+  end
+
 end

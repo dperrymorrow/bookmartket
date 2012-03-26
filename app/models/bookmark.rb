@@ -1,6 +1,7 @@
 class Bookmark < ActiveRecord::Base
 
-  before_create :set_domain
+  before_create :set_domain, :set_user
+
   validates_presence_of :url
   validates_format_of :url, :with => URI::regexp(%w(http https))
   validates_uniqueness_of :url, :scope => :user_id
@@ -15,8 +16,26 @@ class Bookmark < ActiveRecord::Base
     end
   end
 
-  def self.search(api_key,search_term)
-    User.find_by_api_key(api_key).bookmarks.where("title like ?", "%#{search_term}%")
+  def set_user
+    self.user_id ||= $user.id
+  end
+
+  def self.search(search_term)
+    marks = $user.bookmarks.where(
+                'title LIKE :search OR notes LIKE :search OR url LIKE :search',
+                :search => "%#{search_term}%"
+                )
+
+    tags = $user.tags.where(  'name LIKE :search', :search => "%#{search_term}%", :include => :bookmarks )
+    # TODO: refactor that
+    tag_marks = []
+    tags.each do |tag|
+      tag.bookmarks.each do |bookmark|
+        tag_marks << bookmark
+      end
+    end
+
+    marks.concat(tag_marks)
   end
 end
 

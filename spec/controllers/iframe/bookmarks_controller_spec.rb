@@ -4,6 +4,7 @@ describe Iframe::BookmarksController do
 
   before (:each) do
     @user = Factory.create(:user)
+    $user = @user
   end
 
   it "redirects to user not found if invalid api key" do
@@ -18,7 +19,7 @@ describe Iframe::BookmarksController do
 
   it "searches for bookmarks" do
     3.times do
-      Factory.create( :bookmark, :url => 'https://'+Faker::Internet.domain_name, :title => 'foobar', :user_id => @user.id )
+      Factory.create( :bookmark, :url => 'https://'+Faker::Internet.domain_name, :title => 'foobar' )
     end
 
     get :index, :api_key => @user.api_key, :search_term => 'foobar'
