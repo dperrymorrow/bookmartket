@@ -18,7 +18,7 @@ class Iframe::BookmarksController < ApplicationController
     if @bookmark.save
       render :json => @bookmark
     else
-      render :status => :conflict, :json => @bookmark.errors
+      render :status => :conflict, :json => {:errors => @bookmark.errors}
     end
   end
 end

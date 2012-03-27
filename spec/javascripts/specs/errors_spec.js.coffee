@@ -1,7 +1,9 @@
 describe "alerts", ->
   defaults =
     test_msg:'the test message'
-    errors:[['name','cannot be blank'],['city','cannot be blank']]
+    errors:
+      name: ['cannot be blank']
+      city: ['is not valid','cannot be blank']
 
   beforeEach ->
     loadFixtures 'errors'
@@ -28,7 +30,7 @@ describe "alerts", ->
 
     it "highlights the errors correctly", ->
       expect($('#name-input').closest('.control-group')).toHaveClass 'error'
-      expect($('#name-input').closest('.controls')).toContain '.help-block'
+      expect($('#name-input').closest('.controls')).toContain ".#{dpm.Errors.lbl_class.replace(' ', '.')}"
 
     it "clears the errors", ->
       dpm.Errors.clearErrors($('#the-form'))

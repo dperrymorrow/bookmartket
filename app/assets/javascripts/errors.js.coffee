@@ -4,7 +4,8 @@ class dpm.Errors
 
   @alert_classes:   ['alert-warning','alert-error','alert-success','alert-info']
   @input_container: '.control-group'
-  @lbl_template:    "<span class='help-block error'><strong>{{field}}:</strong>{{message}}</span>"
+  @lbl_template:    "<span class='{{lbl_class}}'><strong>{{field}}: </strong>{{message}}</span>"
+  @lbl_class:       'label label-important'
 
   @showMsg:(message, css_class, autofade, element)->
     element = $('#flash') if not element
@@ -24,19 +25,20 @@ class dpm.Errors
 
   @clearErrors:(form)->
     form.find("#{@input_container}.error").removeClass('error')
-    form.find('.help-block.error').remove().find('.help-block,.help-inline').show()
+    sel = @lbl_class.replace(' ', '.')
+    form.find(".#{sel}").remove()
 
   @highlightErrors:(errors,form)->
     dpm.Errors.clearErrors(form)
+    fields = _.keys( errors )
 
-    _.each errors, ( error )=>
-      input = form.find("*[name=\"#{error[0]}\"]")
+    for field in fields
+      input = form.find("*[name=\"#{field}\"]")
 
       if input
-        msg = @lbl_template.replace('{{field}}',error[0]).replace('{{message}}',error[1])
-
-        input.closest( @input_container ).addClass('error')
-        input.closest('.controls').find('.help-block,.help-inline').not('.error').hide()
-        input.closest('.controls').append( msg )
+        for error in errors[field]
+          msg = @lbl_template.replace('{{field}}',field).replace('{{message}}',error).replace('{{lbl_class}}',@lbl_class)
+          input.closest( @input_container ).addClass('error')
+          input.closest('.controls').append( msg )
 
     return dpm.Errors
