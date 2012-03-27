@@ -12,7 +12,6 @@ gem 'haml'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'haml_coffee_assets'
@@ -22,21 +21,18 @@ end
 
 gem 'jquery-rails'
 gem "rails-backbone"
-# gem 'less-rails-bootstrap', "~> 2.0.5"
 
-group :test do
+group :development, :test do
   gem "autotest-rails", "4.1.0"
-  # gem "autotest-growl"
   gem "rspec-rails"
   gem "launchy"
   gem "rspec-core", "~> 2.7.1"
   gem "spork", '~> 0.9.0.rc9'
+  gem "jasmine"
+  gem "jasminerice"
   gem "fakeweb"
   gem "faker"
-  gem "cucumber-rails", ">= 0.3.2"
-  gem "cucumber-rails-training-wheels"
   gem "database_cleaner"
-  gem "capybara"
   gem "factory_girl"
 end
 

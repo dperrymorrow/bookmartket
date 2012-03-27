@@ -21,13 +21,9 @@ class Bookmark < ActiveRecord::Base
   end
 
   def self.search(search_term)
-    marks = $user.bookmarks.where(
-                'title LIKE :search OR notes LIKE :search OR url LIKE :search',
-                :search => "%#{search_term}%"
-                )
-
+    marks = $user.bookmarks.where( 'title LIKE :search OR notes LIKE :search OR url LIKE :search', :search => "%#{search_term}%" )
     tags = $user.tags.where(  'name LIKE :search', :search => "%#{search_term}%", :include => :bookmarks )
-    # TODO: refactor that
+
     tag_marks = []
     tags.each do |tag|
       tag.bookmarks.each do |bookmark|

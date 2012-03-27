@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require hamlcoffee
 //= require bootstrap.min
+//= require errors
 //= require underscore
 //= require backbone
 //= require backbone_datalink

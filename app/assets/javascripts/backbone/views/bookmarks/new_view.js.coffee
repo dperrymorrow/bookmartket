@@ -22,7 +22,8 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
       success: (bookmark) =>
         window.location.hash = "/bookmarks"
       error: (bookmark, jqXHR) =>
-        @model.set({errors: $.parseJSON(jqXHR.responseText)})
+        dpm.Errors.highlightErrors($.parseJSON(jqXHR.responseText),@.$('form'))
+        # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
   render: ->
