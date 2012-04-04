@@ -13,6 +13,15 @@ class User < ActiveRecord::Base
   validates_presence_of :password
   validates_length_of :password, :minimum => 5
 
+  @@current_user = nil
+
+  def self.set_current_user(user)
+    @@current_user = user
+  end
+
+  def self.get_current_user
+    @@current_user
+  end
 
   def generate_hash
     self.api_key = rand(36**15).to_s(36).upcase

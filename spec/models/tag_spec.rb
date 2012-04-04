@@ -2,8 +2,12 @@ require 'spec_helper'
 
 describe Tag do
 
-  before (:each) do
-    $user = Factory.create(:user)
+  let(:user){
+    Factory.create(:user)
+  }
+
+  before(:each) do
+    User.set_current_user( user )
   end
 
   it "validates presence of name" do

@@ -6,14 +6,14 @@ class Iframe::BookmarksController < ApplicationController
     if params[:search_term]
       @bookmarks = Bookmark.search( params[:search_term] )
     else
-      @bookmarks = $user.bookmarks
+      @bookmarks = User.get_current_user.bookmarks
     end
     render :json => @bookmarks
   end
 
   def create
-    @bookmark         = Bookmark.new(params[:bookmark])
-    @bookmark.user_id = $user.id
+    @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark.user_id = User.get_current_user.id
 
     if @bookmark.save
       render :json => @bookmark

@@ -8,7 +8,7 @@ class Tag < ActiveRecord::Base
   before_create :set_user
 
   def set_user
-    self.user_id ||= $user.id
+    self.user_id ||= User.get_current_user().id
   end
 
 end

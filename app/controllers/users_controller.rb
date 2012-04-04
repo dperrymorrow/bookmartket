@@ -5,11 +5,7 @@ class UsersController < ApplicationController
   skip_before_filter :find_user, [:new, :create]
 
   def show
-    @user = User.find_by_api_key(params[:id])
-    if !@user
-      flash[:error] = t(:cant_find_user)
-      redirect_to root_url
-    end
+    @user = User.get_current_user
   end
 
   # def edit

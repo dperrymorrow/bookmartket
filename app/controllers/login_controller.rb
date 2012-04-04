@@ -12,7 +12,7 @@ class LoginController < ApplicationController
       flash[:notice] = t(:login_success)
       redirect_to user_url(user.api_key)
     else
-      flash[:error]= t(:login_fail)
+      flash[:error] = t(:login_fail)
       redirect_to new_login_url
     end
   end

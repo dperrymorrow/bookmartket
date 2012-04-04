@@ -17,14 +17,16 @@ class Bookmark < ActiveRecord::Base
   end
 
   def set_user
-    self.user_id ||= $user.id
+    self.user_id ||= User.get_current_user().id
   end
 
   def self.search(search_term)
-    marks = $user.bookmarks.where( 'title LIKE :search OR notes LIKE :search OR url LIKE :search', :search => "%#{search_term}%" )
-    tags = $user.tags.where(  'name LIKE :search', :search => "%#{search_term}%", :include => :bookmarks )
+
+    marks = User.get_current_user().bookmarks.where( 'title LIKE :search OR notes LIKE :search OR url LIKE :search', :search => "%#{search_term}%" )
+    tags = User.get_current_user().tags.where( 'name LIKE :search', :search => "%#{search_term}%", :include => :bookmarks )
 
     tag_marks = []
+
     tags.each do |tag|
       tag.bookmarks.each do |bookmark|
         tag_marks << bookmark

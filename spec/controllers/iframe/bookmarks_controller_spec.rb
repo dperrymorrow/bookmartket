@@ -2,9 +2,10 @@ require "spec_helper"
 
 describe Iframe::BookmarksController do
 
-  before (:each) do
-    @user = Factory.create(:user)
-    $user = @user
+  let(:user){ Factory.create(:user) }
+
+  before(:each) do
+    User.set_current_user( user )
   end
 
   it "redirects to user not found if invalid api key" do
@@ -13,7 +14,7 @@ describe Iframe::BookmarksController do
   end
 
   it "creates a bookmark correctly" do
-    post :create, :api_key => @user.api_key, :bookmark  => Factory.attributes_for(:bookmark)
+    post :create, :api_key => user.api_key, :bookmark => Factory.attributes_for(:bookmark)
     response.should be_success
   end
 
@@ -22,7 +23,7 @@ describe Iframe::BookmarksController do
       Factory.create( :bookmark, :url => 'https://'+Faker::Internet.domain_name, :title => 'foobar' )
     end
 
-    get :index, :api_key => @user.api_key, :search_term => 'foobar'
-    assigns(:bookmarks).length.should == 3
+    get :index, :api_key => user.api_key, :search_term => 'foobar'
+    assigns(:bookmarks).length.should be 3
   end
 end
