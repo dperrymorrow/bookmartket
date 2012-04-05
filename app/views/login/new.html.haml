@@ -1,11 +1,40 @@
-%h1 Login
+.hero-unit
+  %h1
+    Booksmartlet
+    %small Start hoarding the internet.
+  .row-fluid
+    .span6
+      %form#login-form.form-horizontal{:action => login_index_path, :method => 'post'}
+        %fieldset
+          %legend Already Got One?
+          .control-group
+            %label.control-label
+              Your Email:
+            .controls
+              = text_field_tag :email
 
-= form_tag( { :action => :create }, { :method => :post })
-%label email
-= text_field_tag :email
-%label password
-= text_field_tag :password
-= submit_tag "Login"
+          .control-group
+            %label.control-label
+              Password:
+            .controls
+              = password_field_tag :password
+          .form-actions
+            %input.btn-large.btn.btn-primary{:type => 'submit', :value => "Retrieve Your Booksmartlet"}
 
+    .span6
+      %form#login-form.form-horizontal{:action => login_index_path, :method => 'post'}
+        %fieldset
+          %legend Create a New Booksmartlet
+          .control-group
+            %label.control-label
+              Your Email:
+            .controls
+              = text_field_tag :email
 
-%a{:href => new_user_path } Create a booksmartlet
+          .control-group
+            %label.control-label
+              Password:
+            .controls
+              = password_field_tag :password
+          .form-actions
+            %input.btn-large.btn.btn-primary{:type => 'submit', :value => "Create New"}

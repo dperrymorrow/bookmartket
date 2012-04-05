@@ -1,0 +1,36 @@
+@import 'mixins.css.less';
+
+body{
+  background-color:#222;
+  padding-top:30px;
+}
+
+.hero-unit{
+  .box-shadow(0px 0px 10px #333);
+
+  border:10px solid #333;
+  background-color:#111;
+  
+  #login-form{
+    margin-top:30px;
+    padding-top:20px;
+    background-color:#f3f3f3;
+    .box-shadow();
+    .border-radius(5px);
+    overflow:hidden;
+    
+    #gradient.vertical(#f3f3f3,#ffffff);
+    
+    legend{
+      font-weight:bold;
+      text-indent:30px;
+      border-bottom:1px solid #dfdfdf;
+      color:lighten(#000000, 30%);
+    }
+    .form-actions{
+      background-color:#333;
+      margin-bottom:0;
+    }
+  }
+}
+

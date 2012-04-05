@@ -10,10 +10,10 @@
     = yield :head
 
   %body
+    .container
+      - if flash[:error]
+        .alert.alert-error= flash[:error]
+      - if flash[:notice]
+        .alert.alert-info= flash[:notice]
 
-    - if flash[:error]
-      %p.error= flash[:error]
-    - if flash[:notice]
-      %p.notice= flash[:notice]
-
-    = yield
+      = yield
