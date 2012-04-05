@@ -46,6 +46,7 @@ Booksmartlet::Application.configure do
   config.assets.precompile += %w( iframe.js )
   config.assets.precompile += %w( site.js )
   config.assets.precompile += %w( boostrap.min.js )
+  config.assets.precompile += %w( bootstrap.min.css )
   config.assets.precompile += %w( site.css )
   config.assets.precompile += %w( iframe_app.css )
 
