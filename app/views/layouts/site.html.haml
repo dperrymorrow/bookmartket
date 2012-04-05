@@ -10,7 +10,7 @@
     = yield :head
 
   %body
-    .container
+    .container#page-content
       - if flash[:error]
         .alert.alert-error= flash[:error]
       - if flash[:notice]

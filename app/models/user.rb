@@ -13,14 +13,12 @@ class User < ActiveRecord::Base
   validates_presence_of :password
   validates_length_of :password, :minimum => 5
 
-  @@current_user = nil
-
   def self.set_current_user(user)
-    @@current_user = user
+    Thread.current[:user] = user
   end
 
   def self.get_current_user
-    @@current_user
+    Thread.current[:user]
   end
 
   def generate_hash

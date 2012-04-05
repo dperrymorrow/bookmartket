@@ -3,34 +3,43 @@
 body{
   background-color:#222;
   padding-top:30px;
+  background-image: url("/assets/stripe.png");
 }
 
 .hero-unit{
-  .box-shadow(0px 0px 10px #333);
-
-  border:10px solid #333;
-  background-color:#111;
+  .box-shadow(0px 0px 10px #000);
+  border:15px solid #333;
+  #translucent.border(#333,50%);
+  #translucent.background(#111,85%);
+  padding:40px;
+  .border-radius(10px);
   
-  #login-form{
-    margin-top:30px;
-    padding-top:20px;
-    background-color:#f3f3f3;
-    .box-shadow();
-    .border-radius(5px);
-    overflow:hidden;
+  h1{
+    font-size:54px;
+    color:#333;
+    text-shadow: 1px 1px 1px darken(#666,8%), -1px -1px 1px lighten(#000,5%);
+    margin-bottom:20px;
     
-    #gradient.vertical(#f3f3f3,#ffffff);
-    
-    legend{
-      font-weight:bold;
-      text-indent:30px;
-      border-bottom:1px solid #dfdfdf;
-      color:lighten(#000000, 30%);
-    }
-    .form-actions{
-      background-color:#333;
-      margin-bottom:0;
+    small{
+      text-shadow:none;
     }
   }
+  
+  hr{
+    border-top:black;
+    border-bottom:#999;
+  }
+  
+  .well{
+    background-color:#999;
+    .box-shadow();
+    min-height:180px;
+    
+    h2{
+      margin-bottom:8px;
+      border-bottom:1px solid #777;
+    }
+  }
+  
 }
 
