@@ -5,5 +5,5 @@
  *= require_self
  *= require bootstrap
  *= require mixins
- *= require iframe
+ *= require iframe_styles
 */

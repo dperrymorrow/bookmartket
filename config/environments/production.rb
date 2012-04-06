@@ -45,10 +45,8 @@ Booksmartlet::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( iframe.js )
   config.assets.precompile += %w( site.js )
-  config.assets.precompile += %w( boostrap.min.js )
-  config.assets.precompile += %w( bootstrap.min.css )
   config.assets.precompile += %w( site.css )
-  config.assets.precompile += %w( iframe_app.css )
+  config.assets.precompile += %w( iframe.css )
 
 
   # Disable delivery errors, bad email addresses will be ignored
