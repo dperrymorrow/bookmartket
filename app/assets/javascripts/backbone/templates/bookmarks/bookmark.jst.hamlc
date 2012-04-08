@@ -1,6 +1,5 @@
 
-.row
-  = @title
-  = @url
-  = @domain
-%hr
+.bookmark
+  %a.link{:href=> @url}=@title
+  %a.btn.delete.btn-danger{:href=>'#'}
+    Delete
