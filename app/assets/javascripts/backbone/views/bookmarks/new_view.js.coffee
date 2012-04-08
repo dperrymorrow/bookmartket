@@ -13,16 +13,16 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
 
-    params =
+    @model.set
       url:   @.$('input[name="url"]').val()
       notes: @.$('textarea[name="notes"]').val()
       title: @.$('input[name="title"]').val()
 
-    @collection.create( params,
+    @collection.create( @model,
       success: (bookmark) =>
-        window.location.hash = "/bookmarks"
+        window.location.hash = "bookmarks"
       error: (bookmark, jqXHR) =>
-        dpm.Errors.highlightErrors($.parseJSON(jqXHR.responseText).errors, @.$('form'))
+        dpm.Errors.highlightErrors $.parseJSON(jqXHR.responseText).errors, @.$('form')
         # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 

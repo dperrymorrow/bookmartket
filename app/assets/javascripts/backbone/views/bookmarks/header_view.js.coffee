@@ -13,14 +13,16 @@ class Booksmartlet.Views.Bookmarks.HeaderView extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
 
-    if @.$('#search-input').val().length > 0
-      window.location.hash = "/bookmarks/search" if window.location.hash != "/bookmarks/search"
+    if @search_field.val().length > 0
+      window.location.hash = "bookmarks/search" if window.location.hash != "/bookmarks/search"
     else
-      window.location.hash = "/bookmarks/new" if window.location.hash != "/bookmarks/new"
+      window.location.hash = "bookmarks/new" if window.location.hash != "/bookmarks/new"
 
-    @collection.search_term = @.$('#search-input').val()
-    @collection.fetch()
+    if @search_field.val().length >= 3
+      @collection.search_term = @search_field.val()
+      @collection.fetch()
 
   render: ->
     $(@el).html @template()
+    @search_field = @.$('#search-input')
     return this
