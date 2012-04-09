@@ -22,27 +22,29 @@ describe Bookmark do
     Factory.build( :bookmark, :url => 'not valid').should_not be_valid
   end
 
-  it "searched title correctly" do
-    Factory.create( :bookmark, :title => 'foobar' )
-    Bookmark.search( 'foobar').count.should == 1
-  end
+  context "#search" do
+    it "searched title correctly" do
+      Factory.create( :bookmark, :title => 'Foobar' )
+      Bookmark.search( 'foobar').count.should == 1
+    end
 
-  it "searched notes correctly" do
-    Factory.create( :bookmark, :notes => 'foobar' )
-    Bookmark.search( 'foobar').length.should == 1
-  end
+    it "searched notes correctly" do
+      Factory.create( :bookmark, :notes => 'Foobar' )
+      Bookmark.search( 'foobar').length.should == 1
+    end
 
-  it "searched url correctly" do
-    Factory.create( :bookmark, :url => 'http://www.foobar.com' )
-    Bookmark.search( 'foobar').count.should == 1
-  end
+    it "searched url correctly" do
+      Factory.create( :bookmark, :url => 'http://www.Foobar.com' )
+      Bookmark.search( 'foobar').count.should == 1
+    end
 
-  it "finds a bookmark by tag" do
-    tag = Factory.create(:tag, :name => 'foobar')
-    Factory.create(:bookmarks_tag, :bookmark_id => bookmark.id, :tag_id => tag.id)
-    Bookmark.search( 'foobar').count.should == 1
-  end
+    it "finds a bookmark by tag" do
+      tag = Factory.create(:tag, :name => 'Foobar')
+      bookmark.update_attributes(:tags => [tag])
+      Bookmark.search( 'foobar').count.should == 1
+    end
 
+  end
 
   it "url is unique for each user" do
     Factory.create( :bookmark )

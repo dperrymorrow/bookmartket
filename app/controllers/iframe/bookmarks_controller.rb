@@ -3,11 +3,12 @@ class Iframe::BookmarksController < ApplicationController
   before_filter :find_user
 
   def index
-    if params[:search_term]
-      @bookmarks = Bookmark.search( params[:search_term] )
-    else
-      @bookmarks = User.get_current_user.bookmarks
-    end
+    @bookmarks = User.get_current_user.bookmarks
+    render :json => @bookmarks
+  end
+
+  def search
+    @bookmarks = Bookmark.search( params[:search_term] )
     render :json => @bookmarks
   end
 

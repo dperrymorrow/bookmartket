@@ -22,13 +22,33 @@ describe Iframe::TagsController do
     end
   end
 
-  context "#index" do
-    it "finds the tags for the bookmark" do
-      bookmark.update_attributes( :tags => [Factory.create(:tag)])
-      get :index, :api_key => user.api_key, :bookmark_id => bookmark.id
-      assigns(:tags).count.should == 1
+  context "creates a tag" do
+    it "creates a tag" do
+      post :create, :api_key => user.api_key, :bookmark_id => '0', :tag => {:name => 'foobar'}
+      response.should be_success
     end
 
+    it "renders the saved tag as response" do
+      post :create, :api_key => user.api_key, :bookmark_id => '0', :tag => {:name => 'foobar'}
+      assigns(:tag).name == 'foobar'
+    end
+
+    it "renders errors correctly" do
+      post :create, :api_key => user.api_key, :bookmark_id => '0', :tag => {:name => ''}
+      response.status.should == 409
+    end
+  end
+
+  it "finds the tags for the bookmark" do
+    bookmark.update_attributes( :tags => [Factory.create(:tag)])
+    get :index, :api_key => user.api_key, :bookmark_id => bookmark.id
+    assigns(:tags).count.should == 1
+  end
+
+  it "searches tags when search term is passed" do
+    Factory.create(:tag, :name => 'foobar')
+    get :search, :api_key => user.api_key, :bookmark_id => bookmark.id, :search_term => 'foobar'
+    assigns(:tags).count.should == 1
   end
 
 

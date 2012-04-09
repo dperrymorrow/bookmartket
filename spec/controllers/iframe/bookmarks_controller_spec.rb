@@ -13,9 +13,19 @@ describe Iframe::BookmarksController do
     response.should be_redirect
   end
 
-  it "creates a bookmark correctly" do
-    post :create, :api_key => user.api_key, :bookmark => Factory.attributes_for(:bookmark)
-    response.should be_success
+  context "creating bookmark" do
+    it "creates a bookmark correctly" do
+      post :create, :api_key => user.api_key, :bookmark => Factory.attributes_for(:bookmark)
+      response.should be_success
+    end
+
+    it "assigns the tags on create" do
+      tag1 = Factory.create :tag
+      tag2 = Factory.create :tag
+
+      post :create, :api_key => user.api_key, :bookmark => Factory.attributes_for(:bookmark, :tag_ids => [tag1.id,tag2.id])
+      assigns(:bookmark).should have(2).tags
+    end
   end
 
   it "searches for bookmarks" do
@@ -23,7 +33,7 @@ describe Iframe::BookmarksController do
       Factory.create( :bookmark, :url => 'https://'+Faker::Internet.domain_name, :title => 'foobar' )
     end
 
-    get :index, :api_key => user.api_key, :search_term => 'foobar'
+    get :search, :api_key => user.api_key, :search_term => 'foobar'
     assigns(:bookmarks).length.should be 3
   end
 end

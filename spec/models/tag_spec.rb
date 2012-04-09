@@ -15,10 +15,32 @@ describe Tag do
   end
 
   it "has belongs to a bookmark" do
-    bookmark = Factory.create(:bookmark)
     tag = Factory.create(:tag)
-    Factory.create(:bookmarks_tag, :bookmark_id => bookmark.id, :tag_id => tag.id)
+    bookmark = Factory.create(:bookmark, :tags => [tag])
     tag.should have(1).bookmarks
   end
 
+
+  context "searching tags" do
+
+    let(:tag) { Factory.create :tag }
+    let(:bookmark) { Factory.create :bookmark }
+
+    it "should find tags by name" do
+      tag.update_attributes(:name => 'Horse Blanket')
+      Tag.search('Horse',bookmark).first.name.should == 'Horse Blanket'
+    end
+
+    it "should not be case sensitive" do
+      tag.update_attributes(:name => 'Horse Blanket')
+      Tag.search('horse',bookmark).first.name.should == 'Horse Blanket'
+    end
+
+    it "shouldnt return tags that the bookmark already has" do
+      tag.update_attributes(:name => 'Horse Blanket')
+      bookmark.update_attributes(:tags => [tag])
+      Tag.search('Horse', bookmark).count.should == 0
+    end
+
+  end
 end

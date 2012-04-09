@@ -1,6 +1,7 @@
 class Iframe::TagsController < ApplicationController
   before_filter :find_bookmark
   before_filter :find_user
+  skip_before_filter :find_bookmark, :only => [:create]
 
   def index
     @tags = @bookmark.tags
@@ -8,11 +9,21 @@ class Iframe::TagsController < ApplicationController
   end
 
   def create
-
+    @tag = Tag.new params[:tag]
+    if @tag.save
+      render :json => @tag
+    else
+      render :status => :conflict, :json => @tag.errors
+    end
   end
 
   def destroy
 
+  end
+
+  def search
+    @tags = Tag.search params[:search_term], @bookmark
+    render :json => @tags
   end
 
   def find_bookmark
