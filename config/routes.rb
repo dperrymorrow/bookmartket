@@ -5,8 +5,11 @@ Booksmartlet::Application.routes.draw do
 
   namespace :iframe do
     resources :app, :only => [:index]
-    resources :tags, :only => [:create,:destroy]
-    resources :bookmarks, :only => [:index,:create,:destroy,:update]
+
+    resources :bookmarks, :only => [:index,:create,:destroy,:update] do
+      resources :tags, :only => [:index,:create,:destroy]
+    end
+
   end
 
   root :to => 'login#new'

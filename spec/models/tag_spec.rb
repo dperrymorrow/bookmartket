@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe Tag do
 
-  let(:user){
-    Factory.create(:user)
-  }
+  let(:user){ Factory.create(:user)}
 
   before(:each) do
     User.set_current_user( user )
   end
 
   it "validates presence of name" do
-    Factory.build(:tag,:name=>'').should_not be_valid
+    tag = Factory.build(:tag,:name=>'')
+    tag.valid?
+    tag.errors[:name].should == ["can't be blank"]
   end
 
   it "has belongs to a bookmark" do

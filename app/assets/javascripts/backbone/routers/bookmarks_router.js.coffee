@@ -3,15 +3,13 @@ class Booksmartlet.Routers.BookmarksRouter extends Backbone.Router
   initialize: (options) ->
     @bookmarks = new Booksmartlet.Collections.BookmarksCollection()
     @bookmarks.reset []
-
     @buildHeader()
 
   routes:
-    "/bookmarks/new":       "newBookmark"
-    "/bookmarks/search":    "search"
-    "/bookmarks":           "new"
-    "/bookmarks/:id/edit":  "edit"
-    ".*":                   "newBookmark"
+    "bookmarks/new":       "newBookmark"
+    "bookmarks/search":    "search"
+    "bookmarks":           "new"
+    "bookmarks/:id/edit":  "edit"
 
   newBookmark: ->
     @view = new Booksmartlet.Views.Bookmarks.NewView(collection: @bookmarks)

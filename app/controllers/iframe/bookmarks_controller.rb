@@ -12,7 +12,7 @@ class Iframe::BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark = Bookmark.new( params[:bookmark] )
     @bookmark.user_id = User.get_current_user.id
 
     if @bookmark.save
@@ -21,4 +21,5 @@ class Iframe::BookmarksController < ApplicationController
       render :status => :conflict, :json => {:errors => @bookmark.errors}
     end
   end
+
 end

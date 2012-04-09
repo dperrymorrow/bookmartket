@@ -11,4 +11,5 @@ class ApplicationController < ActionController::Base
       User.set_current_user( user )
     end
   end
+
 end
