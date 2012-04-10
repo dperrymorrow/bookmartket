@@ -27,6 +27,6 @@
         .btn.btn-success.btn-large#new-bookmark{:href=>'#'}
           %i.icon-check.icon-white
           Save
-        .btn.btn-large#save{:href=>'#'}
+        .btn.btn-large#save{:href=>'#bookmarks'}
           %i.icon-ban-circle
           Cancel

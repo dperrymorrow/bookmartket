@@ -20,8 +20,10 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
 
     @collection.create( @model,
       success: (bookmark) =>
-        window.location.hash = "bookmarks"
+        @model = bookmark
+        Booksmartlet.Routers.BookmarksRouter.getInstance().navigate "bookmarks/index", true
       error: (bookmark, jqXHR) =>
+        @model = bookmark
         dpm.Errors.highlightErrors $.parseJSON(jqXHR.responseText).errors, @.$('form')
         # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )

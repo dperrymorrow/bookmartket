@@ -4,11 +4,11 @@ describe "BookmarksRouter", ->
 
   beforeEach ->
     this.router = new Booksmartlet.Routers.BookmarksRouter()
-    #
-    # try
-    #   Backbone.history.start()
-    # catch(e)
-    #   console.log e
+
+    try
+      Backbone.history.start()
+    catch error
+      console.log error
 
     spyOn this.router, 'newBookmark'
 

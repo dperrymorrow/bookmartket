@@ -36,4 +36,16 @@ describe Iframe::BookmarksController do
     get :search, :api_key => user.api_key, :search_term => 'foobar'
     assigns(:bookmarks).length.should be 3
   end
+
+  it "deletes the bookmark" do
+    delete :destroy, :api_key => user.api_key, :id => Factory.create(:bookmark).id
+    response.should be_success
+  end
+
+  it "does not let you delete a bookmark you do not own" do
+    f_user = Factory.create(:user, :email => Faker::Internet.email())
+    delete :destroy, :api_key => user.api_key, :id => Factory.create(:bookmark, :user_id => f_user.id).id
+    response.status.should == 403
+
+  end
 end

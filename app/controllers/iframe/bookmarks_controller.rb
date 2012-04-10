@@ -12,6 +12,16 @@ class Iframe::BookmarksController < ApplicationController
     render :json => @bookmarks
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    if !@bookmark or @bookmark.user_id != User.get_current_user.id
+      render :status => :forbidden, :json => 'not your bookmark'
+    else
+      @bookmark.delete
+      render :json => {:success => true}
+    end
+  end
+
   def create
     @bookmark = Bookmark.new( params[:bookmark] )
     @bookmark.user_id = User.get_current_user.id

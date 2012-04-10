@@ -6,11 +6,11 @@
       %span.caret
     %ul.dropdown-menu
       %li
-        %a{:href=>'#/bookmarks/new'} New Note
+        %a{:href=>'#bookmarks/new'} New Note
       %li
         %a{:href=>''} Booksmartlet.com
 
-  %a.btn.btn-danger.pull-left#add-bookmark{:href => "#/bookmarks/new"}
+  %a.btn.btn-danger.pull-left#add-bookmark{:href => "#bookmarks/new"}
     %i.icon-bookmark.icon-white
     Add
 

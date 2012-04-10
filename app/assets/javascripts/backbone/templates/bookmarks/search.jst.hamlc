@@ -1,3 +1,4 @@
+
 .bookmarks-container
   - if @bookmarks.length == 0
     .alert.alert-info
