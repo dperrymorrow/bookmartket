@@ -1,4 +1,4 @@
-window.dpm ?= {}
+window.dpm ||= {}
 
 class dpm.Errors
 

@@ -1,5 +1,5 @@
 
-window.dpm ?= {}
+window.dpm ||= {}
 class dpm.BsApp
 
   @startUp:(@api_key,@url,@title,@description,@tags)->

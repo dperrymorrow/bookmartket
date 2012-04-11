@@ -4,9 +4,8 @@ describe "BookmarksCollection", ->
 
   beforeEach ->
 
-    window.dpm =
-      BsApp:
-        api_key: 'nobody'
+    window.dpm.BsApp =
+      api_key: 'nobody'
 
     this.collection = new Booksmartlet.Collections.BookmarksCollection()
 
