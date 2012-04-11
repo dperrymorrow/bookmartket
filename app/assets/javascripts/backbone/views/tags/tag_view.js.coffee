@@ -5,7 +5,7 @@ class Booksmartlet.Views.Tags.TagView extends Backbone.View
   template: JST["backbone/templates/tags/tag"]
 
   events:
-    "click .delete": "deleteTag"
+    "click .tag": "deleteTag"
 
   initialize:(options) ->
     @tag = options.tag
@@ -17,7 +17,6 @@ class Booksmartlet.Views.Tags.TagView extends Backbone.View
 
     $(@el).remove()
     @collection.remove [@tag]
-
 
   render: =>
     $(@el).html @template(@tag.toJSON() )

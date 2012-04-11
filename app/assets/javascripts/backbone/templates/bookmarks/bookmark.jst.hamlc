@@ -1,5 +1,7 @@
 
 .bookmark
   %a.link{:href=> @url}=@title
-  %a.btn.delete.btn-danger{:href=>'#'}
-    Delete
+  %a.pull-right.btn.delete.btn-small{:href=>'#'}
+    %i.icon-trash
+  %p.notes
+    =@notes

@@ -15,7 +15,7 @@ describe "TagsIndexView", ->
     $('#content').html this.view.render().el
 
   it "renders one tag for each in collection", ->
-    this.collection.reset([{},{}])
+    this.collection.reset [{},{}]
     expect(this.view.$('.tag').length ).toEqual 2
 
   describe "adds a new tag on comma press in tag field", ->
@@ -29,6 +29,8 @@ describe "TagsIndexView", ->
 
     it "clears after a tag is created", ->
       expect( this.view.$('#tags-input').val() ).toEqual ''
+
+
 
 
 

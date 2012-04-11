@@ -10,7 +10,8 @@ describe "TagView", ->
       name: 'donkey pants'
 
     this.view = new Booksmartlet.Views.Tags.TagView
-      tag: this.model
+      tag:        this.model
+      collection: new Booksmartlet.Collections.TagsCollection()
 
     $('#content').html this.view.render().el
 
@@ -26,11 +27,12 @@ describe "TagView", ->
   describe "delte the tag", ->
 
     it "calls delete on click of delete", ->
-      this.view.$('a.delete').click()
-      expect( $('#content').text() ).not.toContain('donkey pants')
+      this.view.$('.tag').click()
+      expect( $('#content').text() ).not.toContain 'donkey pants'
 
     it "removes it self on delete", ->
-
+      this.view.$('.tag').click()
+      expect( $('#content').html() ).toEqual ''
 
 
 

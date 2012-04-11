@@ -2,10 +2,10 @@ class Bookmark < ActiveRecord::Base
 
   before_create :set_domain, :set_user
 
-  validates_presence_of :title
+  validates_presence_of :title, :message => 'Everybody needs a name.'
   validates_presence_of :url
   validates_format_of :url, :with => URI::regexp(%w(http https))
-  validates_uniqueness_of :url, :scope => :user_id
+  validates_uniqueness_of :url, :scope => :user_id, :message => "You already got that one."
 
   belongs_to :user
   has_many :bookmarks_tag
