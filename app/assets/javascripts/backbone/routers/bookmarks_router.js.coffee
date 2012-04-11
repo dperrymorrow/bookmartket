@@ -17,7 +17,9 @@ class Booksmartlet.Routers.BookmarksRouter extends Backbone.Router
     # "*.":                  "index"
 
   newBookmark: ->
-    @view = new Booksmartlet.Views.Bookmarks.NewView(collection: @bookmarks)
+    @view = new Booksmartlet.Views.Bookmarks.NewView
+      collection:      @bookmarks
+
     $("#content").html(@view.render().el)
 
   search: ->

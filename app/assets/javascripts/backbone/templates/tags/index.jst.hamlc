@@ -1,0 +1,6 @@
+.control-group
+  %label.control-label Tags:
+  .controls
+    %input.input-large#tags-input{:type => "text", :name => 'tags', :placeholder => 'comma dilem' }
+
+.tag-container

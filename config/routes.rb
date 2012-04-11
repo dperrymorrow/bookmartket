@@ -12,10 +12,10 @@ Booksmartlet::Application.routes.draw do
 
     resources :bookmarks, :only => [:index,:create,:destroy,:update] do
       get :search, :on => :collection
+    end
 
-      resources :tags, :only => [:index,:create,:destroy] do
-        get :search, :on => :collection
-      end
+    resources :tags, :only => [:index,:create,:destroy] do
+      get :search, :on => :collection
     end
 
   end

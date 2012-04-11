@@ -8,7 +8,13 @@ class Booksmartlet.Models.Bookmark extends Backbone.Model
     tag_ids: []
     # domain: null
 
+  initialize:(options)->
+    @tags_collection = new Booksmartlet.Collections.TagsCollection()
+
   url:->
+    @.set
+      tag_ids: _.pluck(@tags_collection.models, 'id')
+
     if @isNew()
       return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"
     else

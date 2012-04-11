@@ -17,16 +17,13 @@
         %label.control-label Description:
         .controls
           %textarea{:name => 'notes', :placeholder => 'Enter Brief Description', :value => dpm.BsApp.description}
-      .control-group
-        %label.control-label Tags:
-        .controls
-          %textarea.input-large{:type => "text", :name => 'tags', :value => dpm.BsApp.tags, :placeholder => 'comma dilem' }
+      #tags
 
 
       .action-bar
-        .btn.btn-success.btn-large#new-bookmark{:href=>'#'}
+        %a.btn.btn-success.btn-large#new-bookmark{:href=>'#'}
           %i.icon-check.icon-white
           Save
-        .btn.btn-large#save{:href=>'#bookmarks'}
+        %a.btn.btn-large{:href=>'#bookmarks/index'}
           %i.icon-ban-circle
           Cancel

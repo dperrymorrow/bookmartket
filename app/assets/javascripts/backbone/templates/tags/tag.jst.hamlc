@@ -1,0 +1,3 @@
+%span.badge.badge-info.tag.pull-left
+  %span.name= @name
+  %a.close.delete.pull-right{:href=>'#'}&times;

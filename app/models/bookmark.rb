@@ -2,6 +2,7 @@ class Bookmark < ActiveRecord::Base
 
   before_create :set_domain, :set_user
 
+  validates_presence_of :title
   validates_presence_of :url
   validates_format_of :url, :with => URI::regexp(%w(http https))
   validates_uniqueness_of :url, :scope => :user_id

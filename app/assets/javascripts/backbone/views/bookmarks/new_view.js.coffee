@@ -2,12 +2,14 @@ Booksmartlet.Views.Bookmarks ||= {}
 
 class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
   template: JST["backbone/templates/bookmarks/new"]
+  children_instantiated = false
 
   events:
     "click #new-bookmark": "save"
 
   initialize:(options)->
     @model = new options.collection.model
+    @tags_collection = @model.tags_collection
 
   save: (e) ->
     e.preventDefault()
@@ -18,9 +20,9 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
       notes: @.$('textarea[name="notes"]').val()
       title: @.$('input[name="title"]').val()
 
-    @collection.create( @model,
+    @model.save( null,
       success: (bookmark) =>
-        @model = bookmark
+        @collection.add @model
         Booksmartlet.Routers.BookmarksRouter.getInstance().navigate "bookmarks/index", true
       error: (bookmark, jqXHR) =>
         @model = bookmark
@@ -28,6 +30,16 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
         # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
+  buildChildren:->
+    @children_instantiated = true
+    @tags_view = new Booksmartlet.Views.Tags.IndexView
+      tags: @tags_collection
+
+  renderChildren:->
+    @buildChildren() if !@children_instantiate
+    @.$('#tags').html @tags_view.render().el
+
   render: ->
     $(@el).html @template(@model.toJSON() )
+    @renderChildren()
     return this
