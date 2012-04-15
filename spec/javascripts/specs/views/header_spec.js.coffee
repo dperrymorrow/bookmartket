@@ -6,7 +6,7 @@ describe "BookmarkHeaderView", ->
     loadFixtures 'generic_view'
 
     this.collection = new Booksmartlet.Collections.BookmarksCollection()
-    this.view = new Booksmartlet.Views.Bookmarks.HeaderView
+    this.view = new Booksmartlet.Views.HeaderView
       collection: this.collection
 
     spyOn( this.collection, 'fetch')
@@ -27,6 +27,12 @@ describe "BookmarkHeaderView", ->
     it "only searches if term is longer than 3", ->
       this.view.$('#search-input').val('F').keyup().val('Fr').keyup().val('Fre').keyup()
       expect(this.collection.fetch.callCount).toEqual(1)
+
+  it "toggles active class on click of note or 'mark", ->
+    this.view.$('#add-note').click()
+    expect( this.view.$('#add-note').hasClass('.active')).toEqual true
+
+
 
 
 

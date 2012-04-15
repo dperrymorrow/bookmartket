@@ -1,0 +1,11 @@
+.btns
+
+  .btn-group.pull-left#add-note
+    %a.btn.btn-warning{"data-toggle" => "dropdown", :href => "#"}
+      %i.icon-list.icon-white
+
+    %a.active.btn.btn-danger.pull-left#add-bookmark{:href => "#bookmarks/new"}
+      %i.icon-bookmark.icon-white
+
+.search-form
+  %input.input-medium.search-query#search-input{:type => "text", :placeholder => 'Search'}

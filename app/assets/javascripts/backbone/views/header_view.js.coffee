@@ -1,10 +1,12 @@
-Booksmartlet.Views.Bookmarks ||= {}
+Booksmartlet.Views ||= {}
 
-class Booksmartlet.Views.Bookmarks.HeaderView extends Backbone.View
-  template: JST["backbone/templates/bookmarks/header"]
+class Booksmartlet.Views.HeaderView extends Backbone.View
+  template: JST["backbone/templates/header"]
 
   events:
     "keyup #search-input": "search"
+    "click #add-bookmark": "toggleActive"
+    "click #add-note": "toggleActive"
 
   initialize:(options)->
     @collection = options.collection
@@ -26,3 +28,10 @@ class Booksmartlet.Views.Bookmarks.HeaderView extends Backbone.View
     $(@el).html @template()
     @search_field = @.$('#search-input')
     return this
+
+  toggleActive:(e)->
+    e.preventDefault()
+    e.stopPropagation()
+
+    @.$('a').removeClass 'active'
+    $(e.target).addClass 'active'

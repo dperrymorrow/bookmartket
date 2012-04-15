@@ -4,7 +4,7 @@ class Booksmartlet.Routers.BookmarksRouter extends Backbone.Router
   initialize: (options) ->
     @bookmarks = new Booksmartlet.Collections.BookmarksCollection()
     @bookmarks.reset []
-    @buildHeader()
+
 
   @getInstance:->
     _instance ||= new Booksmartlet.Routers.BookmarksRouter()
@@ -36,6 +36,3 @@ class Booksmartlet.Routers.BookmarksRouter extends Backbone.Router
     @view = new Booksmartlet.Views.Bookmarks.EditView(model: bookmark)
     $("#content").html(@view.render().el)
 
-  buildHeader:->
-    @header = new Booksmartlet.Views.Bookmarks.HeaderView(collection: @bookmarks)
-    $("#top-bar").html(@header.render().el)

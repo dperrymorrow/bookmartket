@@ -1,4 +1,4 @@
-
+%h3="Bookmarks Matching #{@search_term}"
 .bookmarks-container
   - if @bookmarks.length == 0
     .alert.alert-info

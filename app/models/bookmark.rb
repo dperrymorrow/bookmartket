@@ -6,6 +6,7 @@ class Bookmark < ActiveRecord::Base
   validates_presence_of :url
   validates_format_of :url, :with => URI::regexp(%w(http https))
   validates_uniqueness_of :url, :scope => :user_id, :message => "You already got that one."
+  validates_length_of [:notes,:title,:url], :maximum => 140
 
   belongs_to :user
   has_many :bookmarks_tag
