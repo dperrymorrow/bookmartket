@@ -64,8 +64,8 @@ input[type="text"],textarea{
     float:left;
     width:140px;
     
-    #add-bookmark{
-      margin:none;
+    a.active{
+      .box-shadow( inset, 1px 1px 5px #000 ) !important;
     }
   }
   
@@ -75,7 +75,7 @@ input[type="text"],textarea{
     width:210px;
     
     input[type="text"]{
-      background-color:#333;
+      background-color:#444;
       .box-shadow( inset 1px 1px 4px #000 );
       border:1px solid #000;
       color:#dfdfdf;
@@ -90,9 +90,11 @@ input[type="text"],textarea{
 }
 
 legend{
-  padding-left:10px;
+  padding:10px;
+
   font-weight:bold;
   text-shadow:1px 1px 1px #fff;
+  line-height:20px;
 }
 
 .form-horizontal{
@@ -131,7 +133,7 @@ legend{
 }
 
 .form-horizontal .control-group:nth-child(even){ 
-  background-color:#dfdfdf;
+  background-color:#efefef;
 }
 
 .tag-container{
@@ -150,4 +152,8 @@ legend{
       font-size:12px;
     }
   }
+}
+
+.alert-block{
+  .border-radius(0px);
 }

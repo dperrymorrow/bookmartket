@@ -1,10 +1,10 @@
 .btns
 
-  .btn-group.pull-left#add-note
-    %a.btn.btn-warning{"data-toggle" => "dropdown", :href => "#"}
+  .btn-group.pull-left
+    %a.btn#add-note.btn-warning{"data-toggle" => "dropdown", :href => "#"}
       %i.icon-list.icon-white
 
-    %a.active.btn.btn-danger.pull-left#add-bookmark{:href => "#bookmarks/new"}
+    %a.btn-danger.active.btn#add-mark{:href => "#bookmarks/new"}
       %i.icon-bookmark.icon-white
 
 .search-form

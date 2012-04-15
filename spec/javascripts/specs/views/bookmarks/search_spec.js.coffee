@@ -24,5 +24,9 @@ describe "BookmarkSearchView", ->
     this.collection.reset([{},{},{},{}])
     expect(this.view.$('.bookmarks-container').children().length).toEqual( 4 )
 
+  it "shows error if no matches", ->
+    this.collection.reset([])
+    expect(this.view.$('#search-results')).toContain '.alert-block'
+
 
 

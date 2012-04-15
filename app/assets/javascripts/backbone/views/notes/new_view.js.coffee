@@ -1,7 +1,7 @@
-Booksmartlet.Views.Bookmarks ||= {}
+Booksmartlet.Views.Notes ||= {}
 
-class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
-  template: JST["backbone/templates/bookmarks/new"]
+class Booksmartlet.Views.Notes.NewView extends Backbone.View
+  template: JST["backbone/templates/notes/new"]
   children_instantiated = false
 
   events:
@@ -9,34 +9,33 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
 
   initialize:(options)->
     @model = new options.collection.model
-    @tags_collection = @model.tags_collection
+    @tagsCollection = @model.tagsCollection
 
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
 
     @model.set
-      url:   @.$('input[name="url"]').val()
-      notes: @.$('textarea[name="notes"]').val()
+      body: @.$('textarea[name="body"]').val()
       title: @.$('input[name="title"]').val()
 
     @model.save( null,
       success: (bookmark) =>
         @collection.add @model
-        Booksmartlet.Routers.BookmarksRouter.getInstance().navigate "bookmarks/index", true
-      error: (bookmark, jqXHR) =>
-        @model = bookmark
+        Booksmartlet.Routers.NotesRouter.getInstance().navigate "notes/index", true
+      error: (note, jqXHR) =>
+        @model = note
         dpm.Errors.highlightErrors $.parseJSON(jqXHR.responseText).errors, @.$('form')
         # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
   buildChildren:->
-    @children_instantiated = true
-    @tags_view = new Booksmartlet.Views.Tags.IndexView
-      tags: @tags_collection
+    @childrenInstantiated = true
+    @tagsView = new Booksmartlet.Views.Tags.IndexView
+      tags: @tagsCollection
 
   renderChildren:->
-    @buildChildren() if !@children_instantiated
+    @buildChildren() if !@childrenInstantiated
     @.$('#tags').html @tags_view.render().el
 
   render: ->

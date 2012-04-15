@@ -20,9 +20,9 @@ class Booksmartlet.Views.HeaderView extends Backbone.View
     else
       window.location.hash = "bookmarks/new" if window.location.hash != "/bookmarks/new"
 
-    if @search_field.val().length >= 3
-      @collection.search_term = @search_field.val()
-      @collection.fetch()
+    # if @search_field.val().length >= 3
+    @collection.search_term = @search_field.val()
+    @collection.fetch()
 
   render: ->
     $(@el).html @template()

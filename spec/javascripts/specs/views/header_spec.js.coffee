@@ -24,13 +24,23 @@ describe "BookmarkHeaderView", ->
       this.view.$('#search-input').val('Fred').keyup()
       expect(this.collection.search_term).toEqual('Fred')
 
-    it "only searches if term is longer than 3", ->
-      this.view.$('#search-input').val('F').keyup().val('Fr').keyup().val('Fre').keyup()
-      expect(this.collection.fetch.callCount).toEqual(1)
+    # it "only searches if term is longer than 3", ->
+    #   this.view.$('#search-input').val('F').keyup().val('Fr').keyup().val('Fre').keyup()
+    #   expect(this.collection.fetch.callCount).toEqual(1)
 
-  it "toggles active class on click of note or 'mark", ->
-    this.view.$('#add-note').click()
-    expect( this.view.$('#add-note').hasClass('.active')).toEqual true
+
+  describe "note/mark toggling", ->
+
+    it "toggles active class on click of note or 'mark", ->
+      this.view.$('#add-note').click()
+      expect( this.view.$('#add-note').hasClass('active')).toEqual true
+
+    it "changes the preview text in search based on context", ->
+      this.view.$('#add-note').click()
+      expect( this.view.$('#search-input').attr('placeholder')).toContain 'Notes'
+
+
+
 
 
 

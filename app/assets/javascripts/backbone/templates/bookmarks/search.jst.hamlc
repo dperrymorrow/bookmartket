@@ -1,8 +1,11 @@
-%h3="Bookmarks Matching #{@search_term}"
-.bookmarks-container
-  - if @bookmarks.length == 0
-    .alert.alert-info
+
+%fieldset#search-results
+  %legend="Bookmarks Matching “#{@search_term ||= ''}”"
+  .bookmarks-container
+
+  - if @bookmarks.length < 1
+    .alert.alert-error.alert-block
       %p
-        %strong You don't have any stuff yet!
+        %strong Nada, Zilch!
         %br
         Sorry, I didn't find any matches to your search.
