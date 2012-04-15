@@ -1,7 +1,7 @@
 .btns
 
   .btn-group.pull-left
-    %a.btn#add-note.btn-warning{"data-toggle" => "dropdown", :href => "#"}
+    %a.btn#add-note.btn-warning{:href => "#notes/new"}
       %i.icon-list.icon-white
 
     %a.btn-danger.active.btn#add-mark{:href => "#bookmarks/new"}

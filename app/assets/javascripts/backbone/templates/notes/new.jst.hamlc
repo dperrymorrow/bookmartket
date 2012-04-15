@@ -1,0 +1,25 @@
+.row
+
+  %form.form-horizontal
+    %fieldset
+      %legend
+        New Note
+
+      .control-group
+        %label.control-label Title:
+        .controls
+          %input.input-large{:type => "text", :name => 'title', :value => dpm.BsApp.title, :placeholder => 'Title' }
+      .control-group
+        %label.control-label Body:
+        .controls
+          %textarea{:name => 'body', :placeholder => 'Write Your Note', :value => dpm.BsApp.description}
+      #tags
+
+
+      .action-bar
+        %a.btn.btn-success.btn-large#new-bookmark{:href=>'#'}
+          %i.icon-check.icon-white
+          Save
+        %a.btn.btn-large{:href=>'#bookmarks/index'}
+          %i.icon-ban-circle
+          Cancel

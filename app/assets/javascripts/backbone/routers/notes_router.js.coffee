@@ -2,9 +2,8 @@ class Booksmartlet.Routers.NotesRouter extends Backbone.Router
   _instance = undefined
 
   initialize: (options) ->
-    @bookmarks = new Booksmartlet.Collections.NotesCollection()
-    @bookmarks.reset []
-
+    @notes = new Booksmartlet.Collections.NotesCollection()
+    @notes.reset []
 
   @getInstance:->
     _instance ||= new Booksmartlet.Routers.NotesRouter()
@@ -17,4 +16,8 @@ class Booksmartlet.Routers.NotesRouter extends Backbone.Router
     # "*.":                  "index"
 
   new:->
-    # hello
+
+    @view = new Booksmartlet.Views.Notes.NewView
+      collection: @notes
+
+    $("#content").html(@view.render().el)

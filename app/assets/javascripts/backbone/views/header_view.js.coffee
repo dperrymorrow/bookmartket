@@ -5,8 +5,8 @@ class Booksmartlet.Views.HeaderView extends Backbone.View
 
   events:
     "keyup #search-input": "search"
-    "click #add-bookmark": "toggleActive"
-    "click #add-note": "toggleActive"
+    "click #add-mark":     "newMark"
+    "click #add-note":     "newNote"
 
   initialize:(options)->
     @collection = options.collection
@@ -27,11 +27,27 @@ class Booksmartlet.Views.HeaderView extends Backbone.View
   render: ->
     $(@el).html @template()
     @search_field = @.$('#search-input')
+    @.$('#add-mark').click()
     return this
 
-  toggleActive:(e)->
-    e.preventDefault()
-    e.stopPropagation()
+  newMark:(e)->
+    # e.preventDefault()
+    #     e.stopPropagation()
 
-    @.$('a').removeClass 'active'
-    $(e.target).addClass 'active'
+    @.$('#add-note').removeClass 'active'
+    @.$('#add-mark').addClass 'active'
+
+    @search_field.attr 'placeholder', 'Search Bookmarks'
+    # Booksmartlet.Routers.BookmarksRouter.getInstance().navigate 'bookmarks/new', true
+
+  newNote:(e)->
+    # e.preventDefault()
+    #     e.stopPropagation()
+
+    @.$('#add-mark').removeClass 'active'
+    @.$('#add-note').addClass 'active'
+
+    @search_field.attr 'placeholder', 'Search Notes'
+    # Booksmartlet.Routers.NotesRouter.getInstance().navigate 'notes/new', true
+
+
