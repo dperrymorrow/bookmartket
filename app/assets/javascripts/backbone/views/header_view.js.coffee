@@ -9,20 +9,25 @@ class Booksmartlet.Views.HeaderView extends Backbone.View
     "click #add-note":     "newNote"
 
   initialize:(options)->
-    @collection = options.collection
+    @notes = options.notes
+    @bookmarks = options.bookmarks
 
   search: (e) ->
     e.preventDefault()
     e.stopPropagation()
 
     if @search_field.val().length > 0
-      window.location.hash = "bookmarks/search" if window.location.hash != "/bookmarks/search"
+      window.location.hash = "#{@context}/search" if window.location.hash != "/#{@context}/search"
     else
-      window.location.hash = "bookmarks/new" if window.location.hash != "/bookmarks/new"
+      window.location.hash = "#{@context}/new" if window.location.hash != "/#{@context}/new"
 
     # if @search_field.val().length >= 3
-    @collection.search_term = @search_field.val()
-    @collection.fetch()
+    if @context == 'notes'
+      @notes.search_term = @search_field.val()
+      @notes.fetch()
+    else
+      @bookmarks.search_term = @search_field.val()
+      @bookmarks.fetch()
 
   render: ->
     $(@el).html @template()
@@ -32,21 +37,23 @@ class Booksmartlet.Views.HeaderView extends Backbone.View
 
   newMark:(e)->
     # e.preventDefault()
-    #     e.stopPropagation()
+    #  e.stopPropagation()
 
     @.$('#add-note').removeClass 'active'
     @.$('#add-mark').addClass 'active'
 
+    @context = 'bookmarks'
     @search_field.attr 'placeholder', 'Search Bookmarks'
     # Booksmartlet.Routers.BookmarksRouter.getInstance().navigate 'bookmarks/new', true
 
   newNote:(e)->
     # e.preventDefault()
-    #     e.stopPropagation()
+    # e.stopPropagation()
 
     @.$('#add-mark').removeClass 'active'
     @.$('#add-note').addClass 'active'
 
+    @context = 'notes'
     @search_field.attr 'placeholder', 'Search Notes'
     # Booksmartlet.Routers.NotesRouter.getInstance().navigate 'notes/new', true
 

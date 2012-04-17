@@ -11,7 +11,7 @@ class Booksmartlet.Models.Note extends Backbone.Model
 
   url:->
     @.set
-      tagIds: _.pluck( @tags_collection.models, 'id' )
+      tag_ids: _.pluck( @tags_collection.models, 'id' )
 
     if @isNew()
       return "/iframe/notes?api_key=#{dpm.BsApp.api_key}"

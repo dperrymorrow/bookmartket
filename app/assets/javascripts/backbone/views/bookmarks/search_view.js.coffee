@@ -6,11 +6,11 @@ class Booksmartlet.Views.Bookmarks.SearchView extends Backbone.View
 
   initialize:() ->
     @bookmarks = @options.bookmarks
-    @options.bookmarks.bind('reset', @render)
+    @bookmarks.bind 'reset', @render, @
 
   addAll:() =>
     # @render()
-    @.$(".bookmarks-container").children().remove()
+    # @.$(".bookmarks-container").children().remove()
     @bookmarks.each(@addOne)
 
   addOne:(bookmark) =>
@@ -20,6 +20,7 @@ class Booksmartlet.Views.Bookmarks.SearchView extends Backbone.View
     @.$(".bookmarks-container").append(view.render().el)
 
   render: =>
+
     $(@el).html(
       @template
         bookmarks:   @bookmarks.toJSON()

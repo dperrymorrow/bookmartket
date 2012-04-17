@@ -11,7 +11,10 @@ class dpm.BsApp
     Backbone.history.start()
     bookmarks_router.newBookmark() if window.location.hash == ''
 
-    header = new Booksmartlet.Views.HeaderView(collection: bookmarks_router.bookmarks)
+    header = new Booksmartlet.Views.HeaderView
+      bookmarks: bookmarks_router.bookmarks
+      notes:     notes_router.notes
+
     $("#top-bar").html header.render().el
 
 
