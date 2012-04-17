@@ -4,6 +4,7 @@ class dpm.Errors
 
   @alert_classes:   ['alert-warning','alert-error','alert-success','alert-info']
   @input_container: '.control-group'
+  @control_container: '.controls'
   @lbl_template:    "<span class='{{lbl_class}}'><strong>{{field}}: </strong>{{message}}</span>"
   @lbl_class:       'label label-important'
 
@@ -39,6 +40,6 @@ class dpm.Errors
         for error in errors[field]
           msg = @lbl_template.replace('{{field}}',field).replace('{{message}}',error).replace('{{lbl_class}}',@lbl_class)
           input.closest( @input_container ).addClass('error')
-          input.closest('.controls').append( msg )
+          input.closest( @control_container ).append( msg )
 
     return dpm.Errors

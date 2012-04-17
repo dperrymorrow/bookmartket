@@ -3,15 +3,16 @@
 html,body{
   margin:0;
   padding:0;
-  width:360px;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
-.container-fluid{
+#main{
   padding:0;
 }
-
 #content{
+  padding:0;
+  margin:0;
   margin-top:50px;
 }
 
@@ -64,16 +65,22 @@ input[type="text"],textarea{
     float:left;
     width:140px;
     
-    a.active{
-      .box-shadow( inset, 1px 1px 10px 0px #000 ) !important;
-      
+    #add-mark.active{
+      border-color:#000;
+      .box-shadow( inset 2px 2px 5px darken( #9d261d, 20%) );
+    }
+    
+    #add-note.active{
+      border-color:#000;
+      .box-shadow( inset 2px 2px 5px darken( #9d261d, 20%) );
     }
   }
   
   .search-form{
     display:inline-block;
     float:right;
-    width:210px;
+    margin-right:5px;
+    width:200px;
     
     input[type="text"]{
       background-color:#444;
@@ -92,7 +99,6 @@ input[type="text"],textarea{
 
 legend{
   padding:10px;
-
   font-weight:bold;
   text-shadow:1px 1px 1px #fff;
   line-height:20px;
@@ -102,18 +108,21 @@ legend{
 
   .control-group{ 
     margin:0;
-    padding: 10px 0px 10px 10px;
+    padding: 2%;
     border-bottom:1px solid #dfdfdf;
     border-top:1px solid #fff;
     display:block;
-  
-    label{
-      width:70px;
-      float:left;
-      line-height:25px;
-      text-align:right;
-      padding-right:5px;
+    
+    input[type="text"],textarea{
+      width:95%;
     }
+    
+
+    .label-important{
+      margin-right:2px;
+      font-size:11px;
+    }
+
   }
   
   .action-bar{
@@ -125,10 +134,15 @@ legend{
     border-top:1px solid #fff;
     #gradient.vertical(#fff,#999);
     .box-shadow(0px 0px 8px #666);
-    padding-left:80px;
+    text-align:center;
     
-    .btn-large{
-      margin-top:10px;
+    .btn-container{
+      display:inline-block;
+      width:auto;
+      
+      .btn-large{
+        margin-top:10px;
+      }
     }
   }  
 }
@@ -157,4 +171,8 @@ legend{
 
 .alert-block{
   .border-radius(0px);
+}
+
+.row{
+  margin:0;
 }
