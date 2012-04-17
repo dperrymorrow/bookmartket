@@ -34,6 +34,7 @@ GEM
     arel (2.2.1)
     autotest-rails (4.1.0)
       ZenTest
+    bluecloth (2.2.0)
     builder (3.0.0)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
@@ -166,6 +167,7 @@ PLATFORMS
 
 DEPENDENCIES
   autotest-rails (= 4.1.0)
+  bluecloth
   coffee-rails (~> 3.1.1)
   database_cleaner
   execjs
