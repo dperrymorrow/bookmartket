@@ -1,0 +1,11 @@
+
+%fieldset#search-results
+  %legend="Notes Matching “#{@search_term ||= ''}”"
+  .notes-container
+
+  - if @notes.length < 1
+    .alert.alert-error.alert-block
+      %p
+        %strong Nada, Zilch!
+        %br
+        Sorry, I didn't find any matches to your search.
