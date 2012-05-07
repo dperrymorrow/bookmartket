@@ -14,6 +14,11 @@ class Booksmartlet.Models.Tag extends Backbone.Model
 class Booksmartlet.Collections.TagsCollection extends Backbone.Collection
   model:       Booksmartlet.Models.Tag
   search_term: null
+  note:        null
+  bookmark:    null
 
   url:->
-    return "/iframe/tags?api_key=#{dpm.BsApp.api_key}"
+    if @note
+      return "/iframe/tags?note_id=#{@note.id}&api_key=#{dpm.BsApp.api_key}"
+    else  
+      return "/iframe/tags?api_key=#{dpm.BsApp.api_key}"

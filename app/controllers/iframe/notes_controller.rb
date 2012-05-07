@@ -19,6 +19,20 @@ class Iframe::NotesController < ApplicationController
       render :status => :conflict, :json => { :errors => @note.errors }
     end
   end
+  
+  def update
+    @note = Note.find params[:id]
+    if @note.user.id == User.get_current_user().id
+      @note.attributes = params[:note]
+      if @note.save
+        render :json => {:success => true}
+      else
+        render_format({:errors => @topic.errors}, :conflict )
+      end
+    else
+      render :status => :forbidden, :json => 'not your note'
+    end
+  end
 
   def destroy
     @note = Note.find params[:id]

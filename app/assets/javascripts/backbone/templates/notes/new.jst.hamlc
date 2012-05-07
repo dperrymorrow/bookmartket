@@ -3,22 +3,23 @@
   %form.form-horizontal
     %fieldset
       %legend
-        New Note
+        = @title ||= "New Note"
 
       .control-group
-        %input.input-large{:type => "text", :name => 'title', :placeholder => 'Title' }
+        %input.input-large{:type => "text", :name => 'title', :placeholder => 'Title', :value => @title }
       #tags
 
       .control-group
-        / %a{:href => 'http://daringfireball.net/projects/markdown/syntax', :target => '_blank' }Supports Markdown
+        %em
+          %a{:href => 'http://daringfireball.net/projects/markdown/syntax', :target => '_blank' }Supports Markdown
         %textarea#note{:name => 'body', :placeholder => 'Write Your Note'}
-
+          = @body ||= ''
 
       .action-bar
         .btn-container
-          %a.btn.btn-success.btn-large#new-note{:href=>'#'}
+          %a.btn.btn-success.btn-large#save-note{:href=>'#'}
             %i.icon-check.icon-white
             Save
-          %a.btn.btn-large{:href=>'#bookmarks/index'}
-            %i.icon-ban-circle
-            Cancel
+          %a.btn.btn-large{:href=>'#notes/index'}
+            %i.icon-arrow-left
+            Back to Search

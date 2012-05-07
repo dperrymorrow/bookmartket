@@ -28,5 +28,4 @@ class Booksmartlet.Collections.BookmarksCollection extends Backbone.Collection
     if !@search_term
       return "/iframe/bookmarks?api_key=#{dpm.BsApp.api_key}"
     else
-      @reset []
       return "/iframe/bookmarks/search?api_key=#{dpm.BsApp.api_key}&search_term=#{encodeURI @search_term}"

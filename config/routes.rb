@@ -6,7 +6,7 @@ Booksmartlet::Application.routes.draw do
   namespace :iframe do
     resources :app, :only => [:index]
 
-    resources :notes, :only => [:create,:index,:destroy] do
+    resources :notes do
       get :search, :on => :collection
     end
 

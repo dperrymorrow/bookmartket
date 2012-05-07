@@ -19,5 +19,5 @@
             %i.icon-check.icon-white
             Save
           %a.btn.btn-large{:href=>'#bookmarks/index'}
-            %i.icon-ban-circle
-            Cancel
+            %i.icon-arrow-left
+            Back To Search

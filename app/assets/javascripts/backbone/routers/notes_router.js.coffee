@@ -28,6 +28,14 @@ class Booksmartlet.Routers.NotesRouter extends Backbone.Router
 
     $("#content").html(@view.render().el)
     
+  edit:(id)->
+    @view = new Booksmartlet.Views.Notes.NewView
+      collection: @notes
+      model:      @notes.get id
+    
+    @view.model.tags_collection.fetch()
+    $("#content").html @view.render().el
+    
   show:(id)->
     @view = new Booksmartlet.Views.Notes.ShowView
       model: @notes.get id

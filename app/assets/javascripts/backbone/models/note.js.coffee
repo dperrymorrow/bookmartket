@@ -9,6 +9,7 @@ class Booksmartlet.Models.Note extends Backbone.Model
 
   initialize:(options)->
     @tags_collection = new Booksmartlet.Collections.TagsCollection()
+    @tags_collection.note = @
 
   url:->
     @.set
@@ -27,5 +28,4 @@ class Booksmartlet.Collections.NotesCollection extends Backbone.Collection
     if !@search_term
       return "/iframe/notes?api_key=#{dpm.BsApp.api_key}"
     else
-      @reset []
       return "/iframe/notes/search?api_key=#{dpm.BsApp.api_key}&search_term=#{encodeURI @search_term}"

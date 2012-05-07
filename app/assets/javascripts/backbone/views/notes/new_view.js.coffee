@@ -3,13 +3,14 @@ Booksmartlet.Views.Notes ||= {}
 class Booksmartlet.Views.Notes.NewView extends Backbone.View
   template: JST["backbone/templates/notes/new"]
   children_instantiated = false
-
+  mode: 'create'
   events:
-    "click #new-note": "save"
+    "click #save-note": "save"
 
   initialize:(options)->
-    @model = new options.collection.model()
+    @model ||= new options.collection.model()
     @tags_collection = @model.tags_collection
+    @mode = 'edit' if !@model.isNew()
 
   save:(e)->
     e.preventDefault()
@@ -21,7 +22,7 @@ class Booksmartlet.Views.Notes.NewView extends Backbone.View
 
     @model.save( null,
       success: (note) =>
-        @collection.add @model
+        @collection.add @model if @mode == 'create'
         Booksmartlet.Routers.NotesRouter.getInstance().navigate "notes/index", true
       error: (note, jqXHR) =>
         @model = note
