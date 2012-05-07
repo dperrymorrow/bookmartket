@@ -6,4 +6,5 @@
  *= require bootstrap
  *= require mixins
  *= require iframe_styles
+ *= require markdownizer
 */
