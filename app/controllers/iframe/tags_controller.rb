@@ -4,10 +4,8 @@ class Iframe::TagsController < ApplicationController
   skip_before_filter :find_bookmark, :find_note, :only => [:create]
 
   def index
-    
     @tags = @bookmark.tags if @bookmark
     @tags = @note.tags if @note
-    # raise @note.inspect
     @tags ||= User.get_current_user().tags
     render :json => @tags
 
@@ -40,11 +38,10 @@ class Iframe::TagsController < ApplicationController
   def find_note
     return if !params[:note_id]
     @note = Note.find_by_id params[:note_id]
-    # raise User.get_current_user().inspect
     if !@note
       render :json => 'not found', :status => :not_found
       return
-    elsif @note.user.api_key != params[:api_key]
+    elsif @note.user.id != User.get_current_user().id
       render :json => 'not owner', :status => :forbidden
       return
     end
