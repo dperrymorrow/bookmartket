@@ -6,13 +6,12 @@
         New Bookmark
 
       .control-group
-        %input.input-large{:type => "text", :name => 'url', :placeholder => 'Url' }
+        %input.input-large{:type => "text", :name => 'url', :placeholder => 'Url', :value => dpm.BsApp.url }
       .control-group
-        %input.input-large{:type => "text", :name => 'title', :placeholder => 'Title' }
+        %input.input-large{:type => "text", :name => 'title', :placeholder => 'Title', :value => dpm.BsApp.title }
       .control-group
-        %textarea{:name => 'notes', :placeholder => 'Enter Brief Description' }
+        %textarea{:name => 'notes', :placeholder => 'Enter Brief Description', dpm.BsApp.description }
       #tags
-
 
       .action-bar
         .btn-container

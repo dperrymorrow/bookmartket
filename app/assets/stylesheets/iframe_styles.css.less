@@ -125,34 +125,32 @@ legend{
       width:95%;
     }
     
-
     .label-important{
       margin-right:2px;
       font-size:11px;
     }
-
   }
+}
+
+.action-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  height:60px;
+  width:100%;
+  border-top:1px solid #fff;
+  #gradient.vertical(#fff,#999);
+  .box-shadow(0px 0px 8px #666);
+  text-align:center;
   
-  .action-bar{
-    position:fixed;
-    bottom:0;
-    left:0;
-    height:60px;
-    width:100%;
-    border-top:1px solid #fff;
-    #gradient.vertical(#fff,#999);
-    .box-shadow(0px 0px 8px #666);
-    text-align:center;
+  .btn-container{
+    display:inline-block;
+    width:auto;
     
-    .btn-container{
-      display:inline-block;
-      width:auto;
-      
-      .btn-large{
-        margin-top:10px;
-      }
+    .btn-large{
+      margin-top:10px;
     }
-  }  
+  }
 }
 
 /*.form-horizontal .control-group:nth-child(even){ 
@@ -183,4 +181,8 @@ legend{
 
 .row{
   margin:0;
+}
+
+#note-body{
+  padding:10px;
 }

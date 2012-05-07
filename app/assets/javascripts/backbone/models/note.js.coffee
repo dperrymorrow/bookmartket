@@ -5,6 +5,7 @@ class Booksmartlet.Models.Note extends Backbone.Model
     title:   null
     body:    null
     tag_ids: []
+    rendered_body:  null
 
   initialize:(options)->
     @tags_collection = new Booksmartlet.Collections.TagsCollection()
@@ -26,4 +27,5 @@ class Booksmartlet.Collections.NotesCollection extends Backbone.Collection
     if !@search_term
       return "/iframe/notes?api_key=#{dpm.BsApp.api_key}"
     else
+      @reset []
       return "/iframe/notes/search?api_key=#{dpm.BsApp.api_key}&search_term=#{encodeURI @search_term}"

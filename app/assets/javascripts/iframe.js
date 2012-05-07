@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require hamlcoffee
+//= require showdown
 //= require bootstrap.min
 //= require errors
 //= require underscore

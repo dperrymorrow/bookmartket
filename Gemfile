@@ -20,6 +20,7 @@ group :assets do
   gem 'less-rails'
 end
 
+gem 'markdownizer'
 gem 'jquery-rails'
 gem "rails-backbone"
 

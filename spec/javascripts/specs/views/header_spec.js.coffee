@@ -1,28 +1,51 @@
-describe "BookmarkHeaderView", ->
+describe "HeaderView", ->
   this.view = null
-  this.collection = null
+  this.notes = null
+  this.bookmarks = null
 
   beforeEach ->
     loadFixtures 'generic_view'
 
-    this.collection = new Booksmartlet.Collections.BookmarksCollection()
+    this.notes = new Booksmartlet.Collections.BookmarksCollection()
+    this.bookmarks = new Booksmartlet.Collections.NotesCollection()
+    
     this.view = new Booksmartlet.Views.HeaderView
-      collection: this.collection
+      notes: this.notes
+      bookmarks: this.bookmarks
 
-    spyOn( this.collection, 'fetch')
+    spyOn this.notes, 'fetch'
+    spyOn this.bookmarks, 'fetch'
+    
     $('#content').html(this.view.render().el)
 
   it "renders the header view", ->
     expect($('#content')).toContain '#search-input'
+    
+  it "defaults to bookmarks", ->
+    expect( this.view.context ).toEqual 'bookmarks'
+    
+  
 
   describe "searches on keyup", ->
-    it "fetches the collection on keyup", ->
+    it "fetches the notes on keyup", ->
+      this.view.context = 'notes'
       this.view.$('#search-input').val('Fred').keyup()
-      expect(this.collection.fetch).wasCalled()
+      expect(this.notes.fetch).wasCalled()
 
     it "sets the search term to the input val on keyup", ->
+      this.view.context = 'notes'
       this.view.$('#search-input').val('Fred').keyup()
-      expect(this.collection.search_term).toEqual('Fred')
+      expect(this.notes.search_term).toEqual 'Fred'
+      
+    it "fetches the bookmarks on keyup", ->
+      this.view.context = 'bookmarks'
+      this.view.$('#search-input').val('Fred').keyup()
+      expect(this.bookmarks.fetch).wasCalled()
+
+    it "sets the search term to the input val on keyup", ->
+      this.view.context = 'bookmarks'
+      this.view.$('#search-input').val('Fred').keyup()
+      expect(this.bookmarks.search_term).toEqual 'Fred'
 
     # it "only searches if term is longer than 3", ->
     #   this.view.$('#search-input').val('F').keyup().val('Fr').keyup().val('Fre').keyup()

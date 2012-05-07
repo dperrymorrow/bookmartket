@@ -42,4 +42,5 @@ class Booksmartlet.Views.Bookmarks.NewView extends Backbone.View
   render: ->
     $(@el).html @template(@model.toJSON() )
     @renderChildren()
+    
     return this

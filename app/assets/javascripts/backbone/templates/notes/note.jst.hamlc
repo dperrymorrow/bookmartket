@@ -1,6 +1,6 @@
 
 .bookmark
-  %a.link{:href=> "#/note/#{@id}" }=@title
+  %a.link{:href=> "#note/#{@id}/show" }=@title
   %a.pull-right.btn.delete.btn-small{:href=>'#'}
     %i.icon-trash
   %p.notes

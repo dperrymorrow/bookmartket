@@ -1,0 +1,9 @@
+%fieldset
+  %legend=@title
+  #note-body
+
+  .action-bar
+    .btn-container
+      %a.btn.btn-large{:href=>'#notes/index'}
+        %i.icon-arrow-left
+        Back To Search

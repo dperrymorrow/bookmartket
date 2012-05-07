@@ -2,7 +2,9 @@ Booksmartlet.Views ||= {}
 
 class Booksmartlet.Views.HeaderView extends Backbone.View
   template: JST["backbone/templates/header"]
-
+  
+  context: 'bookmarks'
+  
   events:
     "keyup #search-input": "search"
     "click #add-mark":     "newMark"

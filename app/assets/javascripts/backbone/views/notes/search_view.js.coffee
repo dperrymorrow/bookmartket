@@ -22,7 +22,7 @@ class Booksmartlet.Views.Notes.SearchView extends Backbone.View
   render: =>
     $(@el).html(
       @template
-        notes:   @notes.toJSON()
+        notes:       @notes.toJSON()
         search_term: @notes.search_term
     )
     @addAll()

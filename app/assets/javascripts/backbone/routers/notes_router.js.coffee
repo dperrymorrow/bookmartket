@@ -12,7 +12,8 @@ class Booksmartlet.Routers.NotesRouter extends Backbone.Router
     "notes/new":       "new"
     "notes/search":    "search"
     "notes/index":     "index"
-    "notes/:id/edit":  "edit"
+    "note/:id/edit":  "edit"
+    "note/:id/show":  "show"
     # "*.":                  "index"
 
   new:->
@@ -26,6 +27,12 @@ class Booksmartlet.Routers.NotesRouter extends Backbone.Router
       notes: @notes
 
     $("#content").html(@view.render().el)
+    
+  show:(id)->
+    @view = new Booksmartlet.Views.Notes.ShowView
+      model: @notes.get id
+
+    $("#content").html @view.render().el
 
   index: ->
     @view = new Booksmartlet.Views.Notes.SearchView

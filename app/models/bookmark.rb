@@ -27,15 +27,20 @@ class Bookmark < ActiveRecord::Base
     marks = User.get_current_user().bookmarks.where( 'lower(title) LIKE :search OR lower(notes) LIKE :search OR lower(url) LIKE :search', :search => "%#{search_term}%".downcase )
     tags = User.get_current_user().tags.where( 'lower(name) LIKE :search', :search => "%#{search_term}%".downcase, :include => :bookmarks )
 
-    tag_marks = []
+    filtered = []
 
     tags.each do |tag|
       tag.bookmarks.each do |bookmark|
-        tag_marks << bookmark
+        filtered << bookmark if !filtered.include? bookmark
       end
     end
 
-    marks.concat(tag_marks)
+    marks.each do |bookmark|
+      filtered << bookmark if !filtered.include? bookmark
+    end
+    
+    filtered
+    
   end
 end
 
