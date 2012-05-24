@@ -18,7 +18,7 @@ getDocHeight = function(){
 
 window.bsCloseOverlay = function(){
   element = document.getElementById("bs-iframe-container");
-  element.parentNode.removeChild(element);
+  if( typeof( element) != 'undefined' ){ element.parentNode.removeChild(element); }
 }
 
 getIframe = function(){
@@ -48,6 +48,8 @@ var containerStyles = resets + "z-index:2147483647; width:355px; height:1073px; 
 var closeStyles = resets + "width:20px; height:20px; text-align:center; position:absolute; top:-15px; left:-18px; background-color:#000000; border:3px solid #ffffff; -webkit-border-radius: 15px; -moz-border-radius: 15px; border-radius: 15px;" + shadowStyle;
 
 var closeBtn = '<a href="javascript:window.bsCloseOverlay();" style="' + resets + 'cursor:pointer;font-weight:bold;text-align:center;display:block;color:#ffffff;line-height:22px;font-size:17px;">&times;</a>';
+
+window.bsCloseOverlay();
 
 var bsDiv = document.createElement('div');
 bsDiv.setAttribute('id', 'bs-iframe-container');

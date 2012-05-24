@@ -6,8 +6,8 @@
     .btn-container
       %a.btn.btn-large{:href=>'#notes/index'}
         %i.icon-arrow-left
-        Back To Search
+        Back
       
       %a.btn.btn-large.btn-primary{:href=>"#note/#{@id}/edit"}
-        %i.icon-pencil
+        %i.icon-pencil.icon-white
         Edit Note

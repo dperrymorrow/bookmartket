@@ -5,6 +5,7 @@ html,body{
   padding:0;
   overflow-x:hidden;
   overflow-y:auto;
+  background-color:#efefef;
 }
 
 #main{
@@ -110,6 +111,7 @@ legend{
   font-weight:bold;
   text-shadow:1px 1px 1px #fff;
   line-height:20px;
+  background-color:#fff;
 }
 
 .form-horizontal{
@@ -117,13 +119,17 @@ legend{
   .control-group{ 
     margin:0;
     padding: 2%;
-    border-bottom:1px solid #dfdfdf;
+    border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
     display:block;
     background-color:#efefef;
     
     input[type="text"],textarea{
       width:95%;
+    }
+    
+    &:last-child{
+      .box-shadow(0px 0px 5px #fff );
     }
     
     .label-important{
@@ -141,7 +147,7 @@ legend{
   width:100%;
   border-top:1px solid #fff;
   #gradient.vertical(#fff,#999);
-  .box-shadow(0px 0px 8px #666);
+  .box-shadow(0px 0px 8px #888);
   text-align:center;
   
   .btn-container{
@@ -186,4 +192,20 @@ legend{
 
 #note-body{
   padding:10px;
+}
+
+.breadcrumb{
+  .border-radius(0px);
+  margin-bottom:0px;
+  #gradient.vertical(#efefef,#ccc);
+  .box-shadow(inset 0px 0px 10px #ccc);
+  border:none;
+  
+  a{
+    color:#555;
+  }
+  
+  li.active{
+    color:#777;
+  } 
 }

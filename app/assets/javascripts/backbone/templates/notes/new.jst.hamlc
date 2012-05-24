@@ -17,9 +17,11 @@
 
       .action-bar
         .btn-container
+          
+          %a.btn.btn-large{:href=>'#notes/index'}
+            %i.icon-arrow-left
+            Back
+        
           %a.btn.btn-success.btn-large#save-note{:href=>'#'}
             %i.icon-check.icon-white
             Save
-          %a.btn.btn-large{:href=>'#notes/index'}
-            %i.icon-arrow-left
-            Back to Search

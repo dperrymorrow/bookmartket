@@ -1,5 +1,13 @@
-.row-fluid
 
+%ul.nav.nav-tabs
+  %li 
+    %a{:href=>'/#bookmarks/index'} 
+      Search Bookmarks
+  %li.active
+    New Bookmark
+
+.row-fluid
+  
   %form.form-horizontal
     %fieldset
       %legend
@@ -18,6 +26,3 @@
           %a.btn.btn-success.btn-large#new-bookmark{:href=>'#'}
             %i.icon-check.icon-white
             Save
-          %a.btn.btn-large{:href=>'#bookmarks/index'}
-            %i.icon-arrow-left
-            Back To Search
