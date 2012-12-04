@@ -1,4 +1,4 @@
-ruby_version="1.9.2"
+ruby_version="1.9.3"
 gemset_name="booksmartlet"
 
 ok="\033[10;32m"

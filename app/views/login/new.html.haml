@@ -8,10 +8,10 @@
         %h2 Already Got One?
         %input{:type=>'text', :name => 'email' ,:placeholder => 'Email', :value => params[:email]}
         %input{:type=>'password', :name => 'password' ,:placeholder => 'Password', :value => params[:password]}
-        %input.btn.btn-primary.btn-large{:type => 'submit', :value => "Get It"}
+        %input.btn.btn-primary.btn{:type => 'submit', :value => "Get It"}
 
     .span6
       .well
         %h2 Need One?
-        %a.btn.btn-info.btn-large{:href => new_user_path} Go Make One
+        %a.btn.btn-info.btn{:href => new_user_path} Go Make One
 

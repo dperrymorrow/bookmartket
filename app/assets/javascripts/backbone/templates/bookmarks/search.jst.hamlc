@@ -1,11 +1,11 @@
 
-%ul.breadcrumb
-  %li 
-    %a{:href=>'/#bookmarks/index'} 
-      Search Bookmarks
-    %span.divider /
-  %li.active
-    New Bookmark
+/ %ul.breadcrumb
+/   %li 
+/     %a{:href=>'/#bookmarks/index'} 
+/       Search Bookmarks
+/     %span.divider /
+/   %li.active
+/     New Bookmark
 
 %fieldset#search-results
   %legend="Bookmarks Matching “#{@search_term ||= ''}”"

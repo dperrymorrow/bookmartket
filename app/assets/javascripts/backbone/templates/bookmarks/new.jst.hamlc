@@ -1,10 +1,10 @@
 
-%ul.nav.nav-tabs
-  %li 
-    %a{:href=>'/#bookmarks/index'} 
-      Search Bookmarks
-  %li.active
-    New Bookmark
+/ %ul.nav.nav-tabs
+/   %li 
+/     %a{:href=>'/#bookmarks/index'} 
+/       Search Bookmarks
+/   %li.active
+/     New Bookmark
 
 .row-fluid
   

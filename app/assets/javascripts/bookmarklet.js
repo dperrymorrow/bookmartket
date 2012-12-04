@@ -17,8 +17,8 @@ getDocHeight = function(){
 }
 
 window.bsCloseOverlay = function(){
-  element = document.getElementById("bs-iframe-container");
-  if( typeof( element) != 'undefined' ){ element.parentNode.removeChild(element); }
+  var element = document.getElementById("bs-iframe-container");
+  if( typeof( element) != 'undefined' && element !== null ){ element.parentNode.removeChild(element); }
 }
 
 getIframe = function(){
