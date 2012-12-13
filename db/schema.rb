@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507174116) do
+ActiveRecord::Schema.define(:version => 20121213174115) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(:version => 20120507174116) do
   create_table "notes", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "rendered_body"
+    t.text     "rendered_body"
   end
 
   create_table "notes_tags", :force => true do |t|
