@@ -12,7 +12,14 @@ class Iframe::TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new params[:tag]
+    @tag         = Tag.new params[:tag]
+    existing_tag = User.get_current_user().tags.find_by_name(@tag.name)
+
+    if existing_tag 
+      render :json => existing_tag
+      return
+    end
+
     if @tag.save
       render :json => @tag
     else

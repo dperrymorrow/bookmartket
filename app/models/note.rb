@@ -7,7 +7,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :title
 
   belongs_to :user
-  has_many :notes_tag
+  has_many :notes_tag, :dependent => :destroy
   has_many :tags, :through => :notes_tag
 
   def set_user

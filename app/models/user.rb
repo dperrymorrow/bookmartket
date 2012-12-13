@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   SALT = 'd53p918702l'
   has_many :bookmarks
-  has_many :tags
-  has_many :notes
+  has_many :tags, :dependent => :destroy
+  has_many :notes, :dependent => :destroy
   before_save :generate_hash, :encrypt_password
 
   validates :email, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def self.encrypt(str)
-    Digest::SHA1.hexdigest( str + SALT )
+    Digest::SHA1.hexdigest(str + SALT)
   end
 
 end

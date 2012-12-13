@@ -9,7 +9,7 @@ class Bookmark < ActiveRecord::Base
   validates_length_of [:notes,:title,:url], :maximum => 140
 
   belongs_to :user
-  has_many :bookmarks_tag
+  has_many :bookmarks_tag, :dependent => :destroy
   has_many :tags, :through => :bookmarks_tag
 
   def set_domain
