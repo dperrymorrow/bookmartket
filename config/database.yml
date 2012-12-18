@@ -13,8 +13,8 @@
 # gem 'pg'
 #
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: booksmartlet_development
   host: localhost
 
@@ -37,8 +37,8 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: booksmartlet_test
   host: localhost
 
