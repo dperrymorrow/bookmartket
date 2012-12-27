@@ -203,11 +203,11 @@ body {
   background-color: #191a1e;
 }
 a {
-  color: #b64727;
+  color: #d44538;
   text-decoration: none;
 }
 a:hover {
-  color: #772e1a;
+  color: #9d2c22;
   text-decoration: underline;
 }
 .img-rounded {
@@ -596,7 +596,7 @@ h6 {
   font-family: 'Rufina', serif;
   font-weight: bold;
   line-height: 20px;
-  color: #777c8c;
+  color: #a1a4af;
   text-rendering: optimizelegibility;
 }
 h1 small,
@@ -2283,17 +2283,17 @@ input[type="button"].btn-block {
 .btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #b65a27;
-  background-image: -moz-linear-gradient(top, #b64727, #b67727);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b64727), to(#b67727));
-  background-image: -webkit-linear-gradient(top, #b64727, #b67727);
-  background-image: -o-linear-gradient(top, #b64727, #b67727);
-  background-image: linear-gradient(to bottom, #b64727, #b67727);
+  background-color: #d45a38;
+  background-image: -moz-linear-gradient(top, #d44538, #d47938);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d44538), to(#d47938));
+  background-image: -webkit-linear-gradient(top, #d44538, #d47938);
+  background-image: -o-linear-gradient(top, #d44538, #d47938);
+  background-image: linear-gradient(to bottom, #d44538, #d47938);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb64727', endColorstr='#ffb67727', GradientType=0);
-  border-color: #b67727 #b67727 #774e1a;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd44538', endColorstr='#ffd47938', GradientType=0);
+  border-color: #d47938 #d47938 #9d5522;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #b67727;
+  *background-color: #d47938;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -2304,12 +2304,12 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #b67727;
-  *background-color: #a16923;
+  background-color: #d47938;
+  *background-color: #c76c2b;
 }
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #8c5b1e \9;
+  background-color: #b26127 \9;
 }
 .btn-warning {
   color: #ffffff;
@@ -2503,13 +2503,13 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #b64727;
+  color: #d44538;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
 .btn-link:hover {
-  color: #772e1a;
+  color: #9d2c22;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2649,7 +2649,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #e6e6e6;
 }
 .btn-group.open .btn-primary.dropdown-toggle {
-  background-color: #b67727;
+  background-color: #d47938;
 }
 .btn-group.open .btn-warning.dropdown-toggle {
   background-color: #f89406;
@@ -3128,7 +3128,7 @@ input[type="submit"].btn.btn-mini {
   transition: all 0.2s ease-in-out;
 }
 a.thumbnail:hover {
-  border-color: #b64727;
+  border-color: #d44538;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -3374,7 +3374,7 @@ a.badge:hover {
   margin-bottom: 0;
   font-size: 60px;
   line-height: 1;
-  color: #ceca8d;
+  color: #c6c27b;
   letter-spacing: -1px;
 }
 .hero-unit li {
@@ -3417,42 +3417,77 @@ body {
   box-shadow: 0px 0px 40px #000000;
   background-color: rgba(26, 27, 30, 0.7);
 }
+label {
+  font-family: 'Rufina', serif !important;
+  font-weight: bold;
+  font-size: 14px;
+}
 #page-content {
-  padding: 30px 0 40px 0;
+  padding: 60px 0 80px 0;
 }
 h1,
 h2 {
   text-shadow: -1px -1px 0px #222222;
+  font-weight: bold;
+  letter-spacing: -0.02em;
 }
 .hero-unit {
-  border: 1px solid #545763;
-  -webkit-box-shadow: inset 0px 0px 3px #000000;
-  -moz-box-shadow: inset 0px 0px 3px #000000;
-  box-shadow: inset 0px 0px 3px #000000;
+  background-color: #3f414a;
+  background-image: -moz-linear-gradient(top, #484b55, #313339);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#484b55), to(#313339));
+  background-image: -webkit-linear-gradient(top, #484b55, #313339);
+  background-image: -o-linear-gradient(top, #484b55, #313339);
+  background-image: linear-gradient(to bottom, #484b55, #313339);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff484b55', endColorstr='#ff313339', GradientType=0);
+  border: 1px solid #858998;
+  -webkit-box-shadow: inset 0px 0px 5px #000000;
+  -moz-box-shadow: inset 0px 0px 5px #000000;
+  box-shadow: inset 0px 0px 5px #000000;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  position: relative;
 }
 .hero-unit h1 {
-  letter-spacing: -0.02em;
+  font-size: 52px;
   margin-bottom: 20px;
 }
 .hero-unit h1 small {
-  color: #aeb1bb;
+  color: #caccd2;
   text-shadow: none;
 }
+.hero-unit #ribbon {
+  position: absolute;
+  top: 20px;
+  right: -180px;
+  width: 300px;
+  height: 500px;
+  background-image: url("/assets/ribbon.png");
+  background-repeat: no-repeat;
+}
 .well {
-  border: 1px solid #3c3f47;
+  border: 1px solid #5f6371;
+  background-color: #33353c;
+  background-image: -moz-linear-gradient(top, #3c3f47, #25262c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3f47), to(#25262c));
+  background-image: -webkit-linear-gradient(top, #3c3f47, #25262c);
+  background-image: -o-linear-gradient(top, #3c3f47, #25262c);
+  background-image: linear-gradient(to bottom, #3c3f47, #25262c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3f47', endColorstr='#ff25262c', GradientType=0);
   -webkit-box-shadow: inset 0px 0px 3px #000000;
   -moz-box-shadow: inset 0px 0px 3px #000000;
   box-shadow: inset 0px 0px 3px #000000;
   min-height: 180px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .well h2 {
-  font-size: 21px;
+  font-size: 23px;
   margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 0px;
   border-bottom: 1px solid #41444d;
 }

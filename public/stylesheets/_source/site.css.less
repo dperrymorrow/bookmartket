@@ -57,17 +57,17 @@
 @bodyBackground: darken(@purple, 20%);
 @textColor:             lighten(@purple, 25%);
 @yellow: #ceca8d;
-@linkColor: #b64727;
+@linkColor: #d44538;
 
 @wellBackground:        darken(@purple, 15%);
 
 @heroUnitBackground:    lighten(@wellBackground, 5%);
-@heroUnitHeadingColor:  @yellow;
+@heroUnitHeadingColor:  darken(@yellow, 5%);
 @heroUnitLeadColor:     inherit;
 
 @headingsFontFamily:  'Rufina', serif;
 @headingsFontWeight:  bold;    // instead of browser default, bold
-@headingsColor:       lighten(@purple, 20%); // empty to use BS default, @textColor
+@headingsColor:       lighten(@purple, 35%); // empty to use BS default, @textColor
 
 // forms
 @inputBackground:               lighten(@purple, 30%);
@@ -103,6 +103,7 @@
   text-shadow:none;
   .box-shadow(inset 0px 0px 3px #000);
 }
+
 .alert-error {
   border:1px solid lighten(@errorBackground, 10%);
 }
@@ -116,42 +117,62 @@ body {
   #translucent.background(@bodyBackground, 0.7);
 }
 
+label {
+  font-family: @headingsFontFamily !important;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 #page-content {
-  padding: 30px 0 40px 0;
+  padding: 60px 0 80px 0;
 }
 
 h1, h2 {
   text-shadow: -1px -1px 0px #222;
+  font-weight: bold;
+  letter-spacing: -0.02em;
 }
 
 .hero-unit{
-  border:1px solid lighten(@purple, 5%);
-  .box-shadow(inset 0px 0px 3px #000);
+  #gradient.vertical(lighten(@heroUnitBackground, 10%), @heroUnitBackground);
+  border:1px solid lighten(@purple, 25%);
+  .box-shadow(inset 0px 0px 5px #000);
   .border-radius(3px);
+  position: relative;
 
   h1{
-    letter-spacing: -0.02em;
+    // text-shadow: -1px -1px 0px darken(@heroUnitHeadingColor, 35%), 1px 1px 0px lighten(@heroUnitHeadingColor, 65%);
+    font-size: 52px;
     margin-bottom:20px;
     small{
-      color: lighten(@purple, 40%);
+      color: lighten(@purple, 50%);
       text-shadow:none;
     }
+  }
+
+  #ribbon {
+    position: absolute;
+    top: 20px;
+    right: -180px;
+    width: 300px;
+    height: 500px;
+    background-image: url("/assets/ribbon.png");
+    background-repeat: no-repeat;
   }
 }
 
 .well{
-  border:1px solid lighten(@wellBackground, 10%);
+  border:1px solid lighten(@wellBackground, 25%);
+  #gradient.vertical(lighten(@wellBackground, 10%), @wellBackground);
   .box-shadow(inset 0px 0px 3px #000);
   min-height:180px;
-  .border-radius(3px);
+  .border-radius(4px);
   
   h2{
-    font-size: 21px;
+    font-size: 23px;
     margin-bottom:15px;
+    margin-top: 5px;
+    padding: 0px;
     border-bottom:1px solid darken(@purple, 3%);
   }
 }
-
-
-
-
