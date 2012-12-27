@@ -19,7 +19,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'haml_coffee_assets'
   gem 'execjs'
-  gem 'less-rails'
 end
 
 gem 'markdownizer'
