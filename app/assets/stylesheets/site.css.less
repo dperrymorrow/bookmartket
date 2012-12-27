@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Rufina);
+@import "../bootstrap/less/bootstrap.less";
+
+@purple: #484b55;
+@bodyBackground: darken(@purple, 20%);
+@textColor:             lighten(@purple, 25%);
+@yellow: #ceca8d;
+@linkColor: #b64727;
+
+@wellBackground: darken(@purple, 15%);
+
+@heroUnitBackground: lighten(@wellBackground, 5%);
+@heroUnitHeadingColor: @yellow;
+@heroUnitLeadColor: inherit;
+
+@headingsFontFamily: 'Rufina', serif;
+@headingsFontWeight: bold;    // instead of browser default, bold
+@headingsColor: lighten(@purple, 20%); // empty to use BS default, @textColor
+
+// forms
+@inputBackground:               lighten(@purple, 30%);
+@placeholderText:         darken(@inputBackground, 13%);
+@inputBorder:                   @placeholderText;
+@inputBorderRadius:             @baseBorderRadius;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+@warningBackground:       #a64a4c;
+@warningText:             darken(@warningBackground, 30%);
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorBackground:         #a64a4c;
+@errorText:               lighten(@errorBackground, 25%);
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+@iconSpritePath:          "/assets/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "/assets/glyphicons-halflings-white.png";
+
+.alert {
+  font-weight:bold;
+  text-shadow:none;
+  .box-shadow(inset 0px 0px 3px #000);
+}
+.alert-error {
+  border:1px solid lighten(@errorBackground, 10%);
+}
+
+html {
+  background-image: url("/assets/bg_texture.png");
+}
+
+body {
+  .box-shadow(0px 0px 40px #000);
+  #translucent.background(@bodyBackground, 0.7);
+}
+
+#page-content {
+  padding: 30px 0 40px 0;
+}
+
+h1, h2 {
+  text-shadow: -1px -1px 0px #222;
+}
+
+.hero-unit{
+  border:1px solid lighten(@purple, 5%);
+  .box-shadow(inset 0px 0px 3px #000);
+  .border-radius(3px);
+
+  h1{
+    letter-spacing: -0.02em;
+    margin-bottom:20px;
+    small{
+      color: lighten(@purple, 40%);
+      text-shadow:none;
+    }
+  }
+}
+
+.well{
+  border:1px solid lighten(@wellBackground, 10%);
+  .box-shadow(inset 0px 0px 3px #000);
+  min-height:180px;
+  .border-radius(3px);
+  
+  h2{
+    font-size: 21px;
+    margin-bottom:15px;
+    border-bottom:1px solid darken(@purple, 3%);
+  }
+}
+
+
+
+

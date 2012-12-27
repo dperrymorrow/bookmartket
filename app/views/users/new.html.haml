@@ -1,16 +1,40 @@
-.well
-  %h1 Get a Booksmartlet
+- if @user.errors.any?
+  .alert.alert-error
 
-  - if @user.errors.any?
-    - @user.errors.messages.each do |message|
-      .message
-        = message.first
-        = message.last.last
-  = form_for @user do |user|
-    = user.label :email
-    = user.text_field :email
-    = user.label :password
-    = user.password_field :password
-    .action-bar
-      = user.submit
+    %p
+      I'm sorry I couldn't save it because...
+      %ul
+      - @user.errors.messages.each do |message|
+        %li
+          = message.first
+          = message.last.last
+
+.hero-unit
+  %h1 
+    Get One
+    %small Snag your own booksmartlet.
+
+.row
+  .span8
+    .well
+      = form_for @user, :html => {:class => 'form-horizontal'} do |user|
+        .control-group
+          .control-label= user.label :email
+          .controls= user.text_field :email
+        .control-group
+          .control-label= user.label :password
+          .controls= user.password_field :password
+        .control-group
+          .controls
+            %input.btn.btn-primary{:type => 'submit', :value => 'Create User'}
+            %a.btn{:href => new_login_path} Cancel
+
+  .span4
+    .well
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

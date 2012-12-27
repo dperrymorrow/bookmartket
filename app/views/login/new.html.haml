@@ -2,16 +2,25 @@
   %h1
     Booksmartlet
     %small Start hoarding the internet.
-  .row-fluid
-    .span6
-      %form.well{:action => login_index_path, :method => 'post'}
-        %h2 Already Got One?
-        %input{:type=>'text', :name => 'email' ,:placeholder => 'Email', :value => params[:email]}
-        %input{:type=>'password', :name => 'password' ,:placeholder => 'Password', :value => params[:password]}
-        %input.btn.btn-primary.btn{:type => 'submit', :value => "Get It"}
 
-    .span6
-      .well
-        %h2 Need One?
-        %a.btn.btn-info.btn{:href => new_user_path} Go Make One
+.row
+  .span8
+    .well
+      %h2 Already Got One?
+      %form.form-search{:action => login_index_path, :method => 'post'}
+        .control-group
+          .controls
+            %input.span5.search-query{:type=>'text', :name => 'email', :placeholder => 'Email', :value => params[:email]}
+        .input-append
+          %input.span3.search-query{:type=>'password', :name => 'password', :placeholder => 'Password', :value => params[:password]}
+          %input.btn.span2.btn-primary.btn{:type => 'submit', :value => "Get It"}
+
+  .span4
+    .well
+      %h2 Need One?
+
+      %p
+        Don't have a booksmartlet? Get one super quick. All we need is an email and a password. 
+
+      %a.btn.btn-info.btn{:href => new_user_path} Get One Now!
 
