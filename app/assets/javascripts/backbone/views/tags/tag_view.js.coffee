@@ -19,5 +19,9 @@ class Booksmartlet.Views.Tags.TagView extends Backbone.View
     @collection.remove [@tag]
 
   render: =>
-    $(@el).html @template(@tag.toJSON() )
+    $(@el).html @template(@tag.toJSON())
+    classes  = ["info", "inverse", "important", "success", "warning"]
+    random   = Math.floor((Math.random()*classes.length));
+    cssClass = classes[random]
+    $(@el).find('span.badge').addClass("badge-#{cssClass}")
     return this

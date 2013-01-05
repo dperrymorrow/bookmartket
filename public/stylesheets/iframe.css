@@ -3373,6 +3373,11 @@ legend {
 }
 .tag-container .badge {
   margin: 1px;
+  -webkit-box-shadow: 1px 1px 3px #999999;
+  -moz-box-shadow: 1px 1px 3px #999999;
+  box-shadow: 1px 1px 3px #999999;
+  display: inline-block;
+  float: left;
 }
 .tag-container .badge a.delete {
   margin-right: 3px;

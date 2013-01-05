@@ -29,8 +29,11 @@
           .controls= user.password_field :password
         .control-group
           .controls
-            %input.btn.btn-primary{:type => 'submit', :value => 'Create User'}
-            %a.btn.btn-info{:href => new_login_path} Cancel
+            %input.btn.btn-primary.btn-large{:type => 'submit', :value => 'Create'}
+            &nbsp;
+            or
+            &nbsp;
+            %a{:href => new_login_path} Cancel
 
   .span5
     .well
