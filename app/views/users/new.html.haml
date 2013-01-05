@@ -19,6 +19,7 @@
 .row
   .span7
     .well
+      %h2 Sign Up...
       = form_for @user, :html => {:class => 'form-horizontal'} do |user|
         .control-group
           .control-label= user.label :email
@@ -33,8 +34,9 @@
 
   .span5
     .well
+      %h2 What is this?
       %p
-        Booksmartlet is really simple. We don't even authenticate for your bookmarklet, we just give you a key associated to your email address.
+        Booksmartlet is really simple. We just generate a bookmarklet with a token.
       %strong
         Here is all you need to do.
       %ul

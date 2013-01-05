@@ -61,7 +61,7 @@
 
 @wellBackground:        darken(@purple, 15%);
 
-@heroUnitBackground:    lighten(@wellBackground, 5%);
+@heroUnitBackground:    lighten(@wellBackground, 8%);
 @heroUnitHeadingColor:  darken(@yellow, 5%);
 @heroUnitLeadColor:     inherit;
 
@@ -70,8 +70,8 @@
 @headingsColor:       lighten(@purple, 35%); // empty to use BS default, @textColor
 
 // forms
-@inputBackground:               lighten(@purple, 30%);
-@placeholderText:               darken(@inputBackground, 13%);
+@inputBackground:               lighten(@purple, 40%);
+@placeholderText:               darken(@inputBackground, 33%);
 @inputBorder:                   @placeholderText;
 @inputBorderRadius:             3px;
 @inputDisabledBackground:       @grayLighter;
@@ -118,7 +118,7 @@ body {
 }
 
 label {
-  font-family: @headingsFontFamily !important;
+  // font-family: @headingsFontFamily !important;
   font-weight: bold;
   font-size: 14px;
 }
@@ -134,7 +134,7 @@ h1, h2 {
 }
 
 .hero-unit{
-  #gradient.vertical(lighten(@heroUnitBackground, 10%), @heroUnitBackground);
+  #gradient.vertical(lighten(@heroUnitBackground, 15%), lighten(@heroUnitBackground, 5%);
   border:1px solid lighten(@purple, 25%);
   .box-shadow(inset 0px 0px 5px #000);
   .border-radius(3px);
@@ -169,8 +169,9 @@ h1, h2 {
   .border-radius(4px);
   
   h2{
-    font-size: 23px;
+    font-size: 28px;
     margin-bottom:15px;
+    letter-spacing: -0.05em;
     margin-top: 5px;
     padding: 0px;
     border-bottom:1px solid darken(@purple, 3%);
