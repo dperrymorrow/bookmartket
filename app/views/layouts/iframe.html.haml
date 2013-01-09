@@ -8,6 +8,9 @@
     = csrf_meta_tags
     = yield :head
 
+    - if Rails.env.development?
+      %script{:src => "localhost:35729/livereload.js?snipver=1" }
+
   %body
 
     #main.container-fluid

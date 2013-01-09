@@ -167,10 +167,12 @@ input[type="text"],textarea{
 
 legend{
   padding:10px;
+  margin: 0;
   font-weight:bold;
   text-shadow:1px 1px 1px #fff;
   line-height:20px;
   background-color:#fff;
+  
 }
 
 .form-horizontal{
@@ -230,9 +232,12 @@ legend{
   
   .badge{
     margin:1px;
-    .box-shadow(1px 1px 3px #999);
+    .border-radius(2px);
+    .box-shadow(1px 1px 1px darken(@blue, 20%));
     display: inline-block;
     float:left;
+    background-color: @blue, 3%;
+    padding: 5px 8px;
     
     a.delete{
       margin-right:3px;

@@ -3309,6 +3309,7 @@ textarea {
 }
 legend {
   padding: 10px;
+  margin: 0;
   font-weight: bold;
   text-shadow: 1px 1px 1px #fff;
   line-height: 20px;
@@ -3373,11 +3374,16 @@ legend {
 }
 .tag-container .badge {
   margin: 1px;
-  -webkit-box-shadow: 1px 1px 3px #999999;
-  -moz-box-shadow: 1px 1px 3px #999999;
-  box-shadow: 1px 1px 3px #999999;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 1px #025577;
+  -moz-box-shadow: 1px 1px 1px #025577;
+  box-shadow: 1px 1px 1px #025577;
   display: inline-block;
   float: left;
+  background-color: #049cdb, 3%;
+  padding: 5px 8px;
 }
 .tag-container .badge a.delete {
   margin-right: 3px;
