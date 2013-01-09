@@ -1,7 +1,8 @@
 Booksmartlet::Application.routes.draw do
 
-  resources :users, :only => [:create,:show,:update,:new]
-  resources :login, :only => [:create,:new]
+  resources :users, :only => [:create, :show, :update, :new]
+  resources :login, :only => [:create, :new]
+  resources :import, :only => [:new, :create]
 
   namespace :iframe do
     resources :app, :only => [:index]
@@ -10,11 +11,11 @@ Booksmartlet::Application.routes.draw do
       get :search, :on => :collection
     end
 
-    resources :bookmarks, :only => [:index,:create,:destroy,:update] do
+    resources :bookmarks, :only => [:index, :create, :destroy, :update] do
       get :search, :on => :collection
     end
 
-    resources :tags, :only => [:index,:create,:destroy] do
+    resources :tags, :only => [:index, :create, :destroy] do
       get :search, :on => :collection
     end
 

@@ -23,7 +23,6 @@ class Bookmark < ActiveRecord::Base
   end
 
   def self.search(search_term)
-
     marks = User.get_current_user().bookmarks.where( 'lower(title) LIKE :search OR lower(notes) LIKE :search OR lower(url) LIKE :search', :search => "%#{search_term}%".downcase )
     tags = User.get_current_user().tags.where( 'lower(name) LIKE :search', :search => "%#{search_term}%".downcase, :include => :bookmarks )
 

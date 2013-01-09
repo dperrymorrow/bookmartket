@@ -17,4 +17,13 @@ class Tag < ActiveRecord::Base
     User.get_current_user().tags.where( 'lower(name) LIKE :search', :search => "%#{term}%".downcase ) - bookmark.tags
   end
 
+  def self.find_or_create(attributes)
+    existing = User.get_current_user().tags.find_by_name attributes[:name]
+    if existing
+      return existing
+    else
+      return Tag.create attributes
+    end
+  end
+
 end

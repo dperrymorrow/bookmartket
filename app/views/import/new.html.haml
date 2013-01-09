@@ -1,0 +1,15 @@
+.hero-unit
+  %h1
+    Import your Bookmarks
+  #ribbon
+
+.row
+  .span8
+    .well
+      = form_tag import_index_path(), :multipart => true do
+        %label Upload bookmarks html file
+        = file_field_tag "bookmarks"
+        %input.btn.btn-primary{:type => 'submit', :value => 'Import Bookmarks'}
+  .span4
+    .well
+      Export your bookmarks from your browser, then upload the html file here.
