@@ -42,10 +42,8 @@ test: &test
   database: booksmartlet_test
   host: localhost
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: booksmartlet_production
-#   pool: 5
-#   username: booksmartlet
-#   password:
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: booksmartlet_development
+  host: localhost
