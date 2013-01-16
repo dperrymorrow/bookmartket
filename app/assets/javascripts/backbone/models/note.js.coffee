@@ -2,7 +2,7 @@ class Booksmartlet.Models.Note extends Backbone.Model
   paramRoot: 'note'
 
   defaults:
-    title:   null
+    title:   ''
     body:    null
     tag_ids: []
     rendered_body:  null
