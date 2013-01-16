@@ -6,7 +6,6 @@ class Booksmartlet.Views.Tags.IndexView extends Backbone.View
 
   events:
     "keyup #tags-input": "createTag"
-    "click .typeahead a": "clickSuggestion"
 
   initialize:() ->
     @tags = @options.tags
@@ -39,19 +38,11 @@ class Booksmartlet.Views.Tags.IndexView extends Backbone.View
     @tag_input.typeahead
       source: @all_tags.pluck 'name'
       items: 8
-      updater: (item)->
-        dir(item)
 
     @tag_input.unbind 'keyup', $.proxy @, 'createTag'
     @tag_input.bind 'keyup', $.proxy @, 'createTag'
 
-  clickSuggestion:(e)->
-    e.preventDefault
-    e.stopPropogation
-    # this should be called by click on a typeahead option
-
   createTag:(e)->
-    
     if e.keyCode == 188 or e.keyCode == 13
       @tag_input.val @tag_input.val().trim()
 
