@@ -24,8 +24,7 @@ class Booksmartlet.Views.Notes.NewView extends Backbone.View
       success: (note) =>
         @collection.add @model if @mode == 'create'
         Booksmartlet.Routers.NotesRouter.getInstance().navigate "notes/index", true
-      error: (note, jqXHR) =>
-        @model = note
+      error: (jqXHR) =>
         dpm.Errors.highlightErrors $.parseJSON(jqXHR.responseText).errors, @.$('form')
         # @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
@@ -41,6 +40,6 @@ class Booksmartlet.Views.Notes.NewView extends Backbone.View
     @.$('#tags').html @tags_view.render().el
 
   render: ->
-    $(@el).html @template(@model.toJSON() )
+    $(@el).html @template(@model.toJSON())
     @renderChildren()
     return this

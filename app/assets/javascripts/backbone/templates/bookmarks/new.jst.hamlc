@@ -13,6 +13,8 @@
       %legend
         New Bookmark
 
+      #flash
+
       .control-group
         %input.input-large{:type => "text", :name => 'url', :placeholder => 'Url', :value => dpm.BsApp.url }
       .control-group

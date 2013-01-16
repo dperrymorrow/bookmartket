@@ -4,8 +4,8 @@
     %fieldset
       %legend
         - if @title
-          = @title 
-        - else 
+          = @title
+        - else
           New Note
 
       .control-group
@@ -16,15 +16,15 @@
         %em
           %a{:href => 'http://daringfireball.net/projects/markdown/syntax', :target => '_blank' }Supports Markdown
         %textarea#note{:name => 'body', :placeholder => 'Write Your Note'}
-          = @body ||= ''
+          = @body if @body
 
       .action-bar
         .btn-container
           
-          %a.btn.btn-large{:href=>'#notes/index'}
+          %a.btn.btn-large{:href => '#notes/index'}
             %i.icon-arrow-left
             Back
         
-          %a.btn.btn-success.btn-large#save-note{:href=>'#'}
+          %a.btn.btn-success.btn-large#save-note{:href => '#'}
             %i.icon-check.icon-white
             Save
