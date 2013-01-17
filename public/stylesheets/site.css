@@ -1658,7 +1658,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("/assets/glyphicons-halflings.png");
+  background-image: url("/images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -1677,7 +1677,7 @@ legend + .control-group {
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url("/assets/glyphicons-halflings-white.png");
+  background-image: url("/images/glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;
@@ -3409,7 +3409,7 @@ a.badge:hover {
   border: 1px solid #bb6869;
 }
 html {
-  background-image: url("/assets/bg_texture.png");
+  background-image: url("/images/bg_texture.png");
 }
 body {
   -webkit-box-shadow: 0px 0px 40px #000000;
@@ -3467,7 +3467,7 @@ h2 {
   right: -180px;
   width: 300px;
   height: 500px;
-  background-image: url("/assets/ribbon.png");
+  background-image: url("/images/ribbon.png");
   background-repeat: no-repeat;
 }
 .well {
