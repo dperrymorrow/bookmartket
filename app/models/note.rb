@@ -22,12 +22,12 @@ class Note < ActiveRecord::Base
 
     tags.each do |tag|
       tag.notes.each do |note|
-        filtered << note if !filtered.include? note
+        filtered << note unless filtered.include? note
       end
     end
     
     notes.each do |note|
-      filtered << note if !filtered.include? note
+      filtered << note unless filtered.include? note
     end
     
     filtered

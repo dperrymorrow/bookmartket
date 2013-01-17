@@ -30,12 +30,12 @@ class Bookmark < ActiveRecord::Base
 
     tags.each do |tag|
       tag.bookmarks.each do |bookmark|
-        filtered << bookmark if !filtered.include? bookmark
+        filtered << bookmark unless filtered.include? bookmark
       end
     end
 
     marks.each do |bookmark|
-      filtered << bookmark if !filtered.include? bookmark
+      filtered << bookmark unless filtered.include? bookmark
     end
     
     filtered
