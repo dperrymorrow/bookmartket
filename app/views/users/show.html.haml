@@ -6,7 +6,7 @@
   #ribbon
 
 .row
-  .span8
+  .span12
     .well
       %h2
         Your booksmartlet...
@@ -17,9 +17,9 @@
       %a.btn.btn-large.btn-primary{:href => get_bookmarklet('bookmarklet.js', {:url => iframe_app_index_url, :api_key => @user.api_key }) }
         %i.icon-bookmark.icon-white
         Booksmartlet
-  .span4
-    .well
-      %h2
-        Import your bookmarks.
-      %a.btn.btn-large.btn-info{:href => new_import_path()}
-        Upload Bookmarks
+  / .span4
+  /   .well
+  /     %h2
+  /       Import your bookmarks.
+  /     %a.btn.btn-large.btn-info{:href => new_import_path()}
+  /       Upload Bookmarks
