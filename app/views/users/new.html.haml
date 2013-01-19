@@ -9,41 +9,39 @@
           = message.first
           = message.last.last
 
-.hero-unit
-  %h1 
-    Get One
-    %small Snag your own booksmartlet.
 
-  #ribbon
+%h1 
+  Get Yours
+  %small 
+    Snag your own booksmartlet. 
 
-.row
+.row-fluid
   .span7
     .well
       %h2 Sign Up...
-      = form_for @user, :html => {:class => 'form-horizontal'} do |user|
-        .control-group
-          .control-label= user.label :email
-          .controls= user.text_field :email
-        .control-group
-          .control-label= user.label :password
-          .controls= user.password_field :password
+      = form_for @user do |user|
         .control-group
           .controls
-            %input.btn.btn-primary.btn-large{:type => 'submit', :value => 'Create'}
-            &nbsp;
-            or
-            &nbsp;
-            %a{:href => new_login_path} Cancel
+            = user.text_field :email, :placeholder => 'Enter your email'
+        .control-group
+          .controls
+            = user.password_field :password, :placeholder => 'Choose a password'
+        .form-actions
+          %input.btn.btn-info.btn-large{:type => 'submit', :value => 'Create'}
+          &nbsp;
+          or
+          &nbsp;
+          %a{:href => new_login_path} Cancel
 
   .span5
     .well
       %h2 What is this?
       %p
         Booksmartlet is really simple. We just generate a bookmarklet with a token.
-      %strong
-        Here is all you need to do.
-      %ul
-        %li Supply an email and a password
-        %li we will generate an API key for your booksmartlet
-        %li Drag the link to your bookmark bar, and use
+        %strong
+          Here is all you need to do.
+        %ul
+          %li Supply an email and a password
+          %li we will generate an API key for your booksmartlet
+          %li Drag the link to your bookmark bar, and use
 

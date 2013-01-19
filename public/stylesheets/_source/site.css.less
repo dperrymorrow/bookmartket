@@ -54,25 +54,24 @@
 
 
 @purple: #484b55;
-@bodyBackground: darken(@purple, 20%);
-@textColor:             lighten(@purple, 25%);
-@yellow: #ceca8d;
-@linkColor: #7ca2c6;
+@bodyBackground: #efefef;
+@textColor: lighten(@black, 60%);
+@linkColor: #178191;
 
-@wellBackground:        darken(@purple, 15%);
+@wellBackground: lighten(@bodyBackground, 5%);
 
-@heroUnitBackground:    lighten(@wellBackground, 8%);
-@heroUnitHeadingColor:  darken(@yellow, 5%);
-@heroUnitLeadColor:     inherit;
+@heroUnitHeadingColor: #555;
+@heroUnitLeadColor: inherit;
 
-@headingsFontFamily:  'Rufina', serif;
-@headingsFontWeight:  bold;    // instead of browser default, bold
-@headingsColor:       lighten(@purple, 35%); // empty to use BS default, @textColor
+@sansFontFamily: 'Raleway', sans-serif;
+@headingsFontFamily: 'Crimson', serif;
+@headingsFontWeight: bold;    // instead of browser default, bold
+@headingsColor: lighten(@black, 35%); // empty to use BS default, @textColor
 
 // forms
-@inputBackground:               lighten(@purple, 40%);
-@placeholderText:               darken(@inputBackground, 33%);
-@inputBorder:                   @placeholderText;
+@inputBackground:               #fff;
+@placeholderText:               #ccc;
+@inputBorder:                   #ccc;
 @inputBorderRadius:             3px;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         #f5f5f5;
@@ -83,16 +82,15 @@
 @warningText:             darken(@warningBackground, 30%);
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@errorBackground:         #a64a4c;
-@errorText:               lighten(@errorBackground, 25%);
-@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+@errorBackground:         lighten(#a64a4c, 45%);
+@errorText:               darken(@errorBackground, 95%);
 
 @successText:             #468847;
 @successBackground:       #dff0d8;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
-@infoBackground:          #d9edf7;
+@infoText:                darken(#3a87ad, 20%);
+@infoBackground:          lighten(#d9edf7, 5%);
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 @iconSpritePath:          "/images/glyphicons-halflings.png";
@@ -101,83 +99,131 @@
 .alert {
   font-weight:bold;
   text-shadow:none;
-  .box-shadow(inset 0px 0px 3px #000);
+  .border-radius(15px);
+  padding: 25px;
+  border:none;
+  font-size: 18px;
 }
 
 .alert-error {
-  border:1px solid lighten(@errorBackground, 10%);
+  .box-shadow(inset 2px 2px 8px darken(@errorBackground, 20%);
 }
 
-html {
-  background-image: url("/images/bg_texture.png");
+.alert-info {
+  .box-shadow(inset 2px 2px 8px darken(@infoBackground, 20%);
 }
 
-body {
-  .box-shadow(0px 0px 40px #000);
-  #translucent.background(@bodyBackground, 0.7);
+
+html, body {
+  height: 100%;
 }
 
 label {
-  // font-family: @headingsFontFamily !important;
   font-weight: bold;
   font-size: 14px;
 }
 
 #page-content {
-  padding: 60px 0 80px 0;
+  background-color: white;
+  .box-shadow(0px 0px 10px #999);
+  display: block;
+  min-height: 100%;
+
+  #content-nest {
+    padding: 50px 50px 70px 50px;
+  }
 }
 
 .btn{
   .border-radius(25px);
 }
 
-h1, h2 {
-  text-shadow: -1px -1px 0px #222;
-  font-weight: bold;
-  letter-spacing: -0.02em;
+h1,h2,h3{
+  font: 75px/68px 'Crimson Text', Arial, sans-serif;
+  text-align:left;
 }
 
-.hero-unit{
-  #gradient.vertical(lighten(@heroUnitBackground, 15%), lighten(@heroUnitBackground, 5%);
-  border:1px solid lighten(@purple, 25%);
-  .box-shadow(inset 0px 0px 5px #000);
-  .border-radius(3px);
-  position: relative;
+h1, h2 {
+  color: #666;
+  font-weight: normal;
+  padding: 0;
+}
 
-  h1{
-    // text-shadow: -1px -1px 0px darken(@heroUnitHeadingColor, 35%), 1px 1px 0px lighten(@heroUnitHeadingColor, 65%);
-    font-size: 52px;
-    margin-bottom:20px;
-    small{
-      color: lighten(@purple, 50%);
-      text-shadow:none;
-    }
+h1 {
+  letter-spacing: -0.06em;
+  font-size: 92px;
+  margin-bottom: 25px;
+  padding: 20px 0px 25px 0px;
+
+  small {
+    margin-top: 5px;
+    font-size: 46px;
+    color: #a59664;
+    letter-spacing: -0.05em;
+    font-weight: 200;
+    display: block;
   }
+}
 
-  #ribbon {
-    position: absolute;
-    top: 20px;
-    right: -180px;
-    width: 300px;
-    height: 500px;
-    background-image: url("/images/ribbon.png");
-    background-repeat: no-repeat;
+h2{
+  font-size: 28px;
+  padding: 0;
+  margin: 0;
+  line-height: 46px;
+  margin-bottom: 20px;
+  letter-spacing: -0.05em;
+  border-bottom:1px solid #efefef;
+}
+
+input[type="text"], input[type="password"] {
+  .border-radius(20px);
+  padding: 8px 15px;
+  // text-shadow: inset 2px 2px 3px #000;
+  // .box-shadow(0px 0px 3px #ccc);
+  border-width: 3px;
+  margin-bottom:3px;
+}
+
+.carousel {
+  .wrapper {
+    border: 2px solid #efefef;
+  }
+  h2{
+    margin-top: 20px;
+  }
+  p {
+    text-align: justify;
+    line-height: 21px;
+    font-size: 16px;
   }
 }
 
 .well{
-  border:1px solid lighten(@wellBackground, 25%);
-  #gradient.vertical(lighten(@wellBackground, 10%), @wellBackground);
-  .box-shadow(inset 0px 0px 3px #000);
-  min-height:180px;
+  border: none;
+  border-top: 3px solid white;
+  .box-shadow(0px 0px 5px #ccc);
+  min-height:280px;
   .border-radius(4px);
-  
-  h2{
-    font-size: 28px;
-    margin-bottom:15px;
-    letter-spacing: -0.05em;
-    margin-top: 5px;
-    padding: 0px;
-    border-bottom:1px solid darken(@purple, 3%);
+
+  h2 {
+    padding-left: 20px;
+  }
+
+  .control-group {
+    .controls {
+      padding-left: 17px;
+    }
+  }
+
+  p {
+    padding: 0 17px;
+    line-height: 21px;
+    font-size: 16px;
+  }
+
+  .form-actions {
+    margin-bottom:0;
+    padding-bottom: 0;
+    #gradient.vertical(#efefef, @wellBackground);
   }
 }

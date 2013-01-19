@@ -4,16 +4,18 @@
     %title Booksmartlet
     %meta{:name => 'keywords', :content => "bookmarks, cloud solution" }
     %link{:rel => "stylesheet", :href => "/stylesheets/site.css", :type => "text/css", :media => "screen"}
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Rufina'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Raleway:500'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Crimson+Text'
     = javascript_include_tag :site
     = csrf_meta_tags
     = yield :head
 
   %body
     .container#page-content
-      - if flash[:error]
-        .alert.alert-error= flash[:error]
-      - if flash[:notice]
-        .alert.alert-info= flash[:notice]
+      #content-nest
+        - if flash[:error]
+          .alert.alert-error= flash[:error]
+        - if flash[:notice]
+          .alert.alert-info= flash[:notice]
 
-      = yield
+        = yield

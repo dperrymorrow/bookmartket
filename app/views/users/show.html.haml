@@ -1,11 +1,10 @@
-.hero-unit
-  %h1
-    Howdy!
-    %small
-      All you gotta do now is use your bookmarklet.
-  #ribbon
+/ .hero-unit
+%h1
+  Welcome Back!
+  %small
+    All you gotta do now is use your bookmarklet.
 
-.row
+.row-fluid
   .span12
     .well
       %h2
@@ -14,9 +13,10 @@
       %p
         all you gotta do is drag the button below to your bookmark bar and you are all set. 
 
-      %a.btn.btn-large.btn-primary{:href => get_bookmarklet('bookmarklet.js', {:url => iframe_app_index_url, :api_key => @user.api_key }) }
-        %i.icon-bookmark.icon-white
-        Booksmartlet
+      .form-actions
+        %a.btn.btn-large.btn-info{:href => get_bookmarklet('bookmarklet.js', {:url => iframe_app_index_url, :api_key => @user.api_key }) }
+          %i.icon-bookmark.icon-white
+          Booksmartlet
   / .span4
   /   .well
   /     %h2

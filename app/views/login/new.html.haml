@@ -1,31 +1,66 @@
-.hero-unit
+.hero----unit
   %h1
     Booksmartlet
-    %small Start hoarding the internet.
+    %small Start hoarding the interwebs.
   #ribbon
 
-.row
-  .span8
+  - unless flash[:error] or flash[:notice]
+    #features.carousel.slide
+      / Carousel items
+      .carousel-inner
+        .item.active
+          .wrapper
+            %img{:src=>'/images/shots/shot1.jpg'}
+          .caousel-caption
+            %h2
+              Save "tagged" bookmarks as you browse.
+            %p
+              You to save bookmarks with tags, titles, and notes right in place in your browser. No more organizing bookmarks, no more wishing that bookmarks you made at work were on your home computer.
+        .item
+          .wrapper
+            %img{:src=>'/images/shots/shot2.jpg'}
+          .caousel-caption
+            %h2
+              Full text search.
+            %p
+              Full text search your bookmarks. This searches your descriptions, titles, urls, and tags. Ever forget what category you put something in as a traditional browser bookmark?
+        .item
+          .wrapper 
+            %img{:src=>'/images/shots/shot3.jpg'}
+          .caousel-caption
+            %h2
+              And it does notes too.
+            %p
+              You can also save Markdown flavored notes right in your browser. Tag, search and edit them just your bookmarks.
+      / Carousel nav
+      %a.carousel-control.left{"data-slide" => "prev", :href => "#features"} ‹
+      %a.carousel-control.right{"data-slide" => "next", :href => "#features"} ›
+
+    :javascript
+      $('.carousel').carousel({
+        interval: 2000
+      });
+
+.row-fluid
+  .span6
     .well
       %h2 Already Got One?
-      %form.form-search{:action => login_index_path, :method => 'post'}
+      %form.form-vertical{:action => login_index_path, :method => 'post'}
         .control-group
           .controls
-            %input.span4.search-query{:type=>'text', :name => 'email', :placeholder => 'Email', :value => params[:email]}
-        .input-append
-          %input.span3.search-query{:type=>'password', :name => 'password', :placeholder => 'Password', :value => params[:password]}
-          %input.btn.span2.btn-primary.btn{:type => 'submit', :value => "Go"}
+            %input.input-large{:type=>'text', :name => 'email', :placeholder => 'Email', :value => params[:email]}
+        .control-group
+          .controls
+            %input.large{:type=>'password', :name => 'password', :placeholder => 'Password', :value => params[:password]}
+        .form-actions
+          %input.btn.btn-info.btn-large{:type => 'submit', :value => "Get Yours"}
 
-  .span4
+  .span6
     .well
       %h2 Need One?
-
       %p
         Don't have a booksmartlet? Get one super quick. All we need is an email and a password. 
+      .form-actions
+        %a.btn.btn-large.btn-info{:href => new_user_path} Create One
 
-      %a.btn.btn-info.btn-large{:href => new_user_path} Get One Now!
 
-.row
-  .span12
-    .well
-      %iframe{:allowFullScreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/57563035", :webkitAllowFullScreen => "", :width => "900"}
