@@ -11,10 +11,16 @@ class LoginController < ApplicationController
     if user
       flash[:notice]    = t(:login_success)
       session[:api_key] = user.api_key
-      redirect_to user_url(user.api_key)
+      respond_to do |format|
+        format.html {redirect_to user_url(user.api_key)}
+        format.json {render json: {api_key: user.api_key}}
+      end
     else
       flash[:error] = t(:login_fail)
-      redirect_to new_login_url
+      respond_to do |format|
+        format.html {redirect_to new_login_url}
+        format.json {render json: {}, status: :forbidden}
+      end
     end
   end
 end
