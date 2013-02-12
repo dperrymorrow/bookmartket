@@ -9,6 +9,11 @@ describe LoginController do
     response.should redirect_to( user_url(user.api_key) )
   end
 
+  it "logs in the user and render the api key in a json" do
+  	post :create, :email => user.email, :password => 'pa55word', format: "json"
+#    expect(response).to render_json({api_key: user.api_key})
+  end
+
   it "renders login action" do
     get :new
     response.should be_success
