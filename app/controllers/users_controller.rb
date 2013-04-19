@@ -30,9 +30,15 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = t(:user_created)
-      redirect_to user_url(@user.api_key)
+      respond_to do |format|
+        format.html {redirect_to user_url(@user.api_key)}
+        format.json {render json: {api_key: @user.api_key}}
+      end
     else
-      render action: "new"
+      respond_to do |format|
+        format.html {render action: "new"}
+        format.json {render json: {}, status: :forbidden}
+      end
     end
   end
 end
