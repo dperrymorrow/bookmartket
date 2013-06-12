@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'mysql2'
+gem 'ruby-mysql'
 gem 'newrelic_rpm'
 gem 'nokogiri'
 
